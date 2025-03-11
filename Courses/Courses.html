@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Page</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="../Assets/Images/4.png">
+    <style>
+ * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: url('../Assets/Images/bgssss/7.jpg') no-repeat center center fixed;
+            background-size: cover;
+        }
+        .navbar {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: transparent;
+            padding: 15px 20px;
+            width: 100%;
+            position: relative;
+        }
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+        .nav-links li {
+            margin: 0;
+        }
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 400;
+            padding: 10px 15px;
+            border-radius: 15px;
+            position: relative;
+            transition: 0.3s;
+            background: rgba(255, 255, 255, 0.217);
+            border-radius: 15px;
+        }
+        .nav-links a::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+        .nav-links a:hover::before {
+            opacity: 1;
+        }
+        .nav-links a:hover {
+            color: #ffffff;
+        }
+        .menu-toggle {
+            display: none;
+            font-size: 24px;
+            color: white;
+            cursor: pointer;
+        }
+        .logo {
+            position: absolute;
+            left: 20px;
+            height: 40px;
+            margin-left: 50px;
+            margin-top: 20px;
+        }
+        .course-section {
+            text-align: center;
+            padding: 40px;
+            color: white;
+        }
+        .course-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            padding: 20px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.1);
+            transition: 0.5s ease-in-out;
+            position: relative;
+        }
+        .filter-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        .filter-btn {
+            font-size: 18px;
+            background: transparent;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: 0.3s;
+            position: relative;
+            overflow: hidden;
+            border: none;
+        }
+        .filter-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+        .courses-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            width: 100%;
+        }
+        .course-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 20px;
+            width: 300px;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            display: block;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .course-card:hover {
+            transform: scale(1.05);
+        }
+
+        .course-card img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .hidden {
+            display: none;
+        }
+        h1{
+            font-size: 50px;
+            margin-bottom: 30px;
+        }
+        @keyframes slideFromRight {
+            from {
+                transform: translateX(50%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        .course-container {
+            height: 100%;
+            position: relative;
+            overflow: hidden; /* Prevents unwanted layout shifts */
+            min-height: 500px; /* Keeps container from shrinking */
+            background: rgba(255, 255, 255, 0.1) !important;
+            backdrop-filter: blur(10px) !important;
+            padding: 20px;
+            border-radius: 20px;
+            transition: min-height 0.3s ease-in-out;
+        }
+
+        .course-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 20px;
+            width: 300px;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            display: block;
+            transition: transform 0.3s ease-in-out, opacity 0.3s;
+            opacity: 1;
+            visibility: visible; /* Ensures the space remains occupied */
+        }
+
+        .course-card:hover {
+            transform: scale(1.05);
+        }
+
+        .course-card img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        /* Instead of display: none, use opacity & visibility */
+        .hidden {
+            opacity: 0;
+            visibility: hidden;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+        }
+
+        /* Slide in from the right */
+        .show-right {
+            animation: slideFromRight 0.5s ease-in-out forwards;
+            transform-origin: right; /* Keeps animation smooth */
+        }
+        .course-container {
+            position: relative;
+            overflow: hidden; /* Prevents scrollbar appearance */
+            min-height: 400px; /* Keeps layout stable */
+        }
+        body {
+            overflow-x: hidden;
+        }
+
+        /* Hide scrollbar for WebKit browsers (Chrome, Safari, Edge) */
+        ::-webkit-scrollbar {
+            display: none;
+        }
+
+        /* Ensure scrolling still works */
+        body {
+            overflow-y: auto; /* Enables vertical scrolling */
+            -ms-overflow-style: none;  /* Hide scrollbar for IE and Edge */
+            scrollbar-width: none;  /* Hide scrollbar for Firefox */
+        }
+
+                .footer {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            flex-direction: column; /* Stack icons vertically */
+            gap: 10px;
+            background: transparent;
+            z-index: 1000;
+        }
+
+        .footer a {
+            text-decoration: none;
+            color: white;
+            font-size: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            backdrop-filter: blur(10px); /* Subtle blur effect */
+            background: rgba(255, 255, 255, 0.1); /* Light transparent background */
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .footer a:hover {
+            transform: scale(1.1); /* Slight zoom on hover */
+        }
+
+        /* Icons color */
+        .footer a i {
+            color: white;
+        }
+        .course-card {
+            position: relative; /* Ensures the banner is placed inside the card */
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 20px;
+            width: 280px;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s ease-in-out;
+        }
+
+
+        .course-card:hover {
+            transform: scale(1.05);
+        }
+        /* Banner Style */
+        .banner {
+            position: absolute;
+            top: 10px;
+            right: -20px; /* Moves the banner slightly outside for a tilted effect */
+            background: red; /* Default color (will be overridden by JS) */
+            color: white;
+            padding: 5px 10px;
+            font-size: 14px;
+            font-weight: bold;
+            transform: rotate(15deg); /* Tilts the banner */
+            border-radius: 5px;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+
+
+        /* Different Banners for Live and Passive */
+        .course-card.live .abanner {
+            background: #28a745; /* Green for Apply Now */
+        }
+
+        .course-card.passive .cbanner {
+            background: #ff9800; /* Orange for Coming Soon */
+        }
+        .courses-wrapper {
+            display: flex;
+            flex-wrap: wrap; /* Allow items to wrap when necessary */
+            justify-content: center; /* Center items */
+            gap: 20px; /* Space between cards */
+            align-items: flex-start; /* Aligns the cards properly */
+            width: 100%;
+        }
+
+        .course-card {
+            width: 280px; /* Adjust width if necessary */
+            display: flex;
+            flex-direction: column;
+        }
+        .hidden {
+            visibility: hidden;
+            position: absolute;
+        }
+        /* Hide scrollbar for WebKit browsers (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+    display: none;
+}
+
+/* Ensure scrolling still works */
+body {
+    overflow-y: auto; /* Enables vertical scrolling */
+    -ms-overflow-style: none;  /* Hide scrollbar for IE and Edge */
+    scrollbar-width: none;  /* Hide scrollbar for Firefox */
+}
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <img src="../Assets/Images/4.png" alt="Logo" class="logo">
+        <span class="menu-toggle" onclick="toggleMenu()">&#9776;</span>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../Assets/AboutMe/Aboutme.html">About</a></li>
+            <li><a href="../ContactUs.html">Contact Us</a></li>
+        </ul>
+    </nav>
+
+    <section class="course-section">
+        <div class="course-container">
+            <h1>Our Courses</h1>
+            <div class="filter-buttons">
+                <button class="filter-btn" onclick="filterCourses('live')">Live Classes</button>
+                <button class="filter-btn" onclick="filterCourses('passive')">Passive Courses</button>
+            </div>
+            <div class="courses-wrapper">
+                <a href="./CarnaticBasics.html" class="course-card live">
+                    <div class="banner">Apply Now</div>
+                    <img src="./img/10.jpg" alt="Thiruppavai">
+                    <h3>Carnatic Music From Basics</h3>
+                    <p>Foundations up to Alankarams
+                    </p>
+                </a>
+                <a href="./passive/Thiruppavai.html" class="course-card passive">
+                    <div class="banner">Apply Now</div>
+                    <img src="./img/8.jpg" alt="Bhagavad Gita">
+                    <h3>Thiruppavai</h3>
+                    <p>Andal’s 30 devotional hymns in 30+ ragas</p>
+                </a>
+                <a href="./Thiruppavai.html" class="course-card live">
+                    <div class="banner">Apply Now</div>
+                    <img src="./img/8.jpg" alt="Carnatic Music">
+                    <h3>Thiruppavai</h3>
+                    <p>Andal’s 30 devotional hymns in 30+ ragas
+                    </p>
+                </a>
+                <a href="./Ashtapathi.html" class="course-card passive">
+                    <div class="banner">Apply Now</div>
+                    <img src="./img/GITA GOVINDAM.jpg" alt="Vedanta Philosophy">
+                    <h3>Ashtapathi</h3>
+                    <p>Jayadeva’s Gita Govindam
+                    </p>
+                </a>
+                <a href="./Ashtapathi.html" class="course-card live">
+                    <div class="banner">Apply Now</div>
+                    <img src="./img/GITA GOVINDAM.jpg" alt="Thiruppavai">
+                    <h3>Ashtapathi</h3>
+                    <p>Jayadeva’s Gita Govindam
+                    </p>
+                </a>
+                <a href="./Tharangams.html" class="course-card passive">
+                    <div class="banner">Apply Now</div>
+                    <img src="./img/2.jpg" alt="Bhagavad Gita">
+                    <h3>Tharangams</h3>
+                    <p>125 songs of Krishna Leela Tharangini </p>
+                </a>
+                <a href="./Pancharathinam.html" class="course-card live">
+                    <div class="banner">Apply Now</div>
+                    <img src="./img/6.jpg" alt="Carnatic Music">
+                    <h3>Thyagaraja Pancharathnam</h3>
+                    <p>Five gems of sri Thyagaraja
+                    </p>
+                </a>
+                <a href="./CarnaticBasics.html" class="course-card passive">
+                    <div class="banner">Apply Now</div>
+                    <img src="./img/10.jpg" alt="Vedanta Philosophy">
+                    <h3>Carnatic Music From Basics</h3>
+                    <p>Foundations up to Alankarams
+                    </p>
+                </a>
+                <a href="./Tharangams.html" class="course-card live">
+                    <div class="banner">Apply Now</div>
+                    <img src="./img/2.jpg" alt="Thiruppavai">
+                    <h3>Tharangams</h3>
+                    <p>125 songs of Krishna Leela Tharangini </p>
+                </a>
+                <a href="./Ragam,Tanam,Pallavi.html" class="course-card passive">
+                    <div class="banner">Coming Soon</div>
+                    <img src="./img/13.jpg" alt="Bhagavad Gita">
+                    <h3>Ragam, Tanam, Pallavi</h3>
+                    <p>Explore 100+ intricate ragas with kritis
+                    </p>
+                </a>
+                <a href="./AdvanceCarnatic.html" class="course-card live">
+                    <div class="banner">Apply Now</div>
+                    <img src="./img/5.jpg" alt="Carnatic Music">
+                    <h3>Advanced Carnatic Music</h3>
+                    <p>Live interactive Carnatic music course.</p>
+                </a>
+                <a href="./Pancharathinam.html" class="course-card passive">
+                    <div class="banner">Coming Soon</div>
+                    <img src="./img/6.jpg" alt="Vedanta Philosophy">
+                    <h3>Pancharathnam</h3>
+                    <p>Five gems of sri Thyagaraja
+                    </p>
+                </a>
+                <a href="./HindusthaniKeerthanam.html" class="course-card passive">
+                    <div class="banner">Coming Soon</div>
+                    <img src="./img/4.jpg" alt="Vedanta Philosophy">
+                    <h3>Hindusthani Keerthans</h3>
+                    <p>Meera, Soordas, and others saint compositions
+                    </p>
+                </a>                
+                <a href="./OothukaduKavi.html" class="course-card passive">
+                    <div class="banner">Coming Soon</div>
+                    <img src="./img/9.jpg" alt="Vedanta Philosophy">
+                    <h3>Oothukadu Kavi Keerthanams</h3>
+                    <p>Tamil and Sanskrit Keerthanams of devotion</p>
+                </a>                
+                <a href="./Abhangs.html" class="course-card passive">
+                    <div class="banner">Coming Soon</div>
+                    <img src="./img/3.jpg" alt="Vedanta Philosophy">
+                    <h3>Abhangs</h3>
+                    <p>Soulful Marathi devotional bhajans
+                    </p>
+                </a>
+                <a href="./IntermediateCarnatic.html" class="course-card passive">
+                    <div class="banner">Coming Soon</div>
+                    <img src="./img/12.jpg" alt="Vedanta Philosophy">
+                    <h3>Intermediate Carnatic Music</h3>
+                    <p>Geetams, varnams (Adi and Ata talam)
+                    </p>
+                </a>
+                <a href="./AdvanceCarnatic.html" class="course-card passive">
+                    <div class="banner">Coming Soon</div>
+                    <img src="./img/5.jpg" alt="Vedanta Philosophy">
+                    <h3>Advanced Carnatic Music</h3>
+                    <p>Keerthanams across all genres
+                    </p>
+                </a>
+                <a href="./Namavalis.html" class="course-card passive">
+                    <div class="banner">Coming Soon</div>
+                    <img src="./img/7.jpg" alt="Vedanta Philosophy">
+                    <h3>Namavalis (Short Bhajans)</h3>
+                    <p>Short bhajans, step by step teaching</p>
+                </a>
+            </div>            
+        </div>
+
+    </section>
+    
+    <script>
+document.addEventListener("DOMContentLoaded", function () {
+    let banners = document.querySelectorAll(".banner");
+
+    banners.forEach(banner => {
+        if (banner.innerText.trim().toLowerCase() === "apply now") {
+            banner.style.background = "#28a745"; // Green for Apply Now
+        } else if (banner.innerText.trim().toLowerCase() === "coming soon") {
+            banner.style.background = "#ff0000"; // Red for Coming Soon
+        }
+    });
+});
+
+    </script>
+    
+
+    <!-- Footer with Social Media Icons -->
+<div class="footer">
+    <a href="https://www.youtube.com/channel/UCVIDnKnxv3pOfCh176DrREw" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+    <a href="https://www.facebook.com/people/Pibatha-Bhagavatam/61563913965243/" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+    <a href="https://wa.me/917012438814" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+</div>
+
+<!-- FontAwesome for Icons -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js"></script>
+
+    
+    <script>
+        function toggleMenu() {
+            document.getElementById('navLinks').classList.toggle('active');
+        }
+        function filterCourses(type) {
+            const courses = document.querySelectorAll('.course-card');
+            courses.forEach(course => {
+                if (course.classList.contains(type)) {
+                    course.classList.remove('hidden');
+                } else {
+                    course.classList.add('hidden');
+                }
+            });
+        }
+    </script>
+    
+    <script>
+                                        function filterCourses(type) {
+                        const courses = document.querySelectorAll('.course-card');
+                        const container = document.querySelector('.course-container');
+
+                        // Keep the container height fixed
+                        container.style.minHeight = container.offsetHeight + "px";
+
+                        courses.forEach(course => {
+                            course.classList.add('hidden'); // Hide all first
+                            course.classList.remove('show-right'); // Reset animation
+                        });
+
+                        setTimeout(() => {
+                            let visibleCount = 0;
+                            courses.forEach(course => {
+                                if (course.classList.contains(type)) {
+                                    course.classList.remove('hidden');
+                                    course.classList.add('show-right'); // Slide from right
+                                    visibleCount++;
+                                }
+                            });
+
+                            // Restore height after animation
+                            setTimeout(() => {
+                                container.style.minHeight = ""; // Allow natural height
+                            }, 500); // Wait for animation to complete
+
+                        }, 100);
+                    }
+
+    </script>
+</body>
+</html>

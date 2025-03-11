@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="icon" type="image/png" href="../Assets/Images/4.png">
+    <title>Donation Payment Page</title>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            overflow-x: hidden;
+            background: url('../Assets/Images/bgssss/7.jpg') no-repeat center center fixed;
+        }
+        .section {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .section.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .DirectPay {
+            background: transparent;
+            width: 100%;
+            padding: 0px;
+            text-align: center;
+        }
+        .direct-pay-container {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 20px;
+            border-radius: 15px;
+            width: 50%;
+            text-align: center;
+            color: white;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .info-btn {
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+            font-size: 18px;
+            margin-left: 10px;
+        }
+        .info-text {
+            display: none;
+            margin-top: 10px;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 10px;
+            border-radius: 10px;
+        }
+        .show-bank-btn {
+            margin-top: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            padding: 12px;
+            width: 100%;
+            color: white;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .show-bank-btn:hover {
+            background: rgba(255, 255, 255, 0.4);
+        }
+        .bank-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 999;
+        }
+        .bank-container {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(20px);
+            padding: 20px;
+            border-radius: 30px;
+            width: 75%;
+            height: 50%;
+            display: flex;
+            justify-content: space-between;
+            color: white;
+            position: relative;
+        }
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            background: transparent;
+            border: none;
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+        }
+        .bank-info {
+            flex: 1;
+            text-align: left;
+            padding-left: 20px;
+        }
+        .vertical-divider {
+            width: 2px;
+            background: rgba(255, 255, 255, 0.5);
+            height: 100%;
+        }
+        .qr-section {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .qr-code {
+            height: 250px;
+            width: 250px;
+            border-radius: 10px;
+        }
+        .donation-wrapper {
+            display: flex;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 20px;
+            border-radius: 15px;
+            width: 85%;
+            height: 65%;
+            text-align: center;
+            color: white;
+            justify-content: space-between;
+        }
+        .donation-container {
+            width: 48%;
+        }
+        .divider {
+            width: 2px;
+            background: rgba(255, 255, 255, 0.5);
+            height: auto;
+        }
+        h2 {
+            margin-bottom: 15px;
+        }
+        .amount-options {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+        .amount-options button {
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            padding: 10px;
+            border-radius: 10px;
+            cursor: pointer;
+            color: white;
+            width: 70px;
+            transition: 0.3s;
+        }
+        .amount-options button:hover {
+            background: rgba(255, 255, 255, 0.4);
+        }
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 5px;
+            border: none;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            outline: none;
+        }
+        ::placeholder {
+            color: white;
+        }
+        .donate-btn {
+            background: #28a745;
+            border: none;
+            padding: 12px;
+            width: 100%;
+            color: white;
+            border-radius: 10px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: 0.3s;
+        }
+        .donate-btn:hover {
+            background: #218838;
+        }
+        .powered-by {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .payment-logo {
+            margin-top: 30px;
+            height: 50px;
+            opacity: 0.8;
+        }
+        section{
+            margin-top: 0;
+        }
+    </style>
+</head>
+<body>
+    <section class="section DirectPay">
+        <!-- Your Direct Pay content goes here -->
+        <div class="direct-pay-container">
+            <h2>Direct Pay</h2>
+            <button class="info-btn" onmouseover="showInfo()" onmouseout="hideInfo()"><i class='bx bx-info-circle'></i></button>
+            <p class="info-text">Use the account number and IFSC code to make a bank transfer or scan the QR code for UPI payments.</p>
+            <button class="show-bank-btn" onclick="toggleBankDetails()">Show Bank Details</button>
+        </div>
+        <h1 style="text-align: center; font-size: 50px; margin-top: 500px; color: white;">Scroll Down</h1>
+        
+        <div id="bankModal" class="bank-modal">
+            <div class="bank-container">
+                <button class="close-btn" onclick="toggleBankDetails()">✖</button>
+                <div class="bank-info">
+                    <h3 style="font-size: 30px;">Bank Transfer Details</h3><br>
+                    <p><strong>Name:</strong> SRUTHI K</p><br>
+                    <p><strong>Account Number:</strong> 40377831096</p><br>
+                    <p><strong>IFSC Code:</strong> SBIN0018319</p><br>
+                    <p><strong>Bank:</strong> State Bank of India</p><br>
+                    <P><strong>Branch:</strong> KOLLENGODE, PALAKKAD</P>
+                </div>
+                <div class="vertical-divider"></div>
+                <div class="qr-section">
+                    <img src="./Assets/Image/Qr.jpg" alt="UPI QR Code" class="qr-code">
+                </div>
+            </div>
+        </div>
+        
+        <script>
+            function showInfo() {
+                document.querySelector('.info-text').style.display = 'block';
+            }
+            function hideInfo() {
+                document.querySelector('.info-text').style.display = 'none';
+            }
+            function toggleBankDetails() {
+                var bankModal = document.getElementById("bankModal");
+                bankModal.style.display = bankModal.style.display === "none" || bankModal.style.display === "" ? "flex" : "none";
+            }
+        </script>
+    </section>
+    
+    <section class="section">
+        <div class="donation-wrapper">
+            <!-- International Payment -->
+            <div class="donation-container">
+                <h2>Donate from Abroad 🌍</h2>
+                <div class="amount-options">
+                    <button onclick="selectAmount('intl', 10)">$10</button>
+                    <button onclick="selectAmount('intl', 50)">$50</button>
+                    <button onclick="selectAmount('intl', 100)">$100</button>
+                    <input type="number" id="customAmountIntl" placeholder="$ Custom">
+                </div>
+                <input type="text" id="nameIntl" placeholder="Your Name">
+                <input type="email" id="emailIntl" placeholder="Your Email">
+                <button class="donate-btn" id="donateIntl">Donate via PayPal</button>
+                <img src="./Assets/Image/pngwing.com.png" alt="Powered by PayPal" class="payment-logo">
+            </div>
+    
+            <!-- Vertical Divider -->
+            <div class="divider"></div>
+    
+            <!-- Domestic (India) Payment -->
+            <div class="donation-container">
+                <h2>Donate from India 🇮🇳</h2>
+                <div class="amount-options">
+                    <button onclick="selectAmount('india', 100)">₹100</button>
+                    <button onclick="selectAmount('india', 500)">₹500</button>
+                    <button onclick="selectAmount('india', 1000)">₹1000</button>
+                    <input type="number" id="customAmountIndia" placeholder="₹ Custom">
+                </div>
+                <input type="text" id="nameIndia" placeholder="Your Name">
+                <input type="email" id="emailIndia" placeholder="Your Email">
+                <button class="donate-btn" id="donateIndia">Donate via Razorpay</button>
+                <img src="./Assets/Image/pngwing.com (1).png" alt="Powered by Razorpay" class="payment-logo">
+            </div>
+        </div>
+    
+        <script>
+            function selectAmount(type, amount) {
+                if (type === 'intl') {
+                    document.getElementById("customAmountIntl").value = amount;
+                } else {
+                    document.getElementById("customAmountIndia").value = amount;
+                }
+            }
+    
+            // International Payment (Example: PayPal - You Need to Set Up)
+            document.getElementById("donateIntl").addEventListener("click", function () {
+                let amount = document.getElementById("customAmountIntl").value || 10;
+                let name = document.getElementById("nameIntl").value;
+                let email = document.getElementById("emailIntl").value;
+    
+                // Redirect to PayPal Payment (Example URL)
+                window.location.href = `https://www.paypal.com/donate?business=YOUR_PAYPAL_EMAIL&amount=${amount}&currency_code=USD&item_name=Donation&payer_email=${email}`;
+            });
+    
+            // Domestic Payment (Razorpay)
+                    document.getElementById("donateIndia").addEventListener("click", function () {
+                var amount = document.getElementById("customAmountIndia").value || 100; // Default ₹100
+
+                var options = {
+                    "key": "YOUR_RAZORPAY_KEY_ID", // Replace with your Razorpay Key ID
+                    "amount": amount * 100, // Razorpay expects amount in paisa
+                    "currency": "INR",
+                    "name": "Your Organization Name",
+                    "description": "Donation Payment",
+                    "image": "your-logo-url.png",
+                    "handler": function (response) {
+                        alert("Payment successful! Payment ID: " + response.razorpay_payment_id);
+                    },
+                    "prefill": {
+                        "name": document.getElementById("nameIndia").value,
+                        "email": document.getElementById("emailIndia").value
+                    },
+                    "theme": {
+                        "color": "#3399cc"
+                    }
+                };
+
+                var rzp = new Razorpay(options);
+                rzp.open();
+            });
+
+        </script>
+    </section>
+    
+    <script>
+        const sections = document.querySelectorAll('.section');
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                }
+            });
+        }, { threshold: 0.2 });
+        
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>

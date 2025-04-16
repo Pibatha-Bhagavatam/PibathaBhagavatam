@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carnatic Music from Basics</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: url('../Assets/Images/bgssss/7.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+        }
+                /* Donate Button Styles */
+.donate-btn {
+    background: #ff9800; /* Orange donate button */
+    color: white;
+    padding: 10px 20px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.3s ease;
+}
+
+.donate-btn:hover {
+    background: white;
+    color: #ff9800;
+}
+
+/* Fixed Donate Button at Top Right */
+.fixed-donate-btn {
+    position: fixed;  /* Keeps it fixed on screen */
+    top: 80px;  /* Distance from the top */
+    right: 20px;  /* Distance from the right */
+    background: #ff9800;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.3s ease;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    z-index: 9999;  /* Ensures it stays above all elements */
+}
+
+/* Hover effect */
+.fixed-donate-btn:hover {
+    background: white;
+    color: #ff9800;
+}
+        /* Navbar */
+        .navbar {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: transparent;
+            padding: 15px 20px;
+            width: 100%;
+            position: relative;
+        }
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+        .nav-links li {
+            margin: 0;
+        }
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 400;
+            padding: 10px 15px;
+            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.2);
+            transition: 0.3s;
+        }
+        .nav-links a:hover {
+            background: rgba(255, 255, 255, 0.4);
+        }
+        .logo {
+            position: absolute;
+            left: 20px;
+            height: 40px;
+        }
+        
+        /* Fixed Enroll Now Button */
+        /* Fixed Enroll Now Button - Bottom Center */
+        .enroll-btn {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #28a745;
+            color: white;
+            padding: 12px 25px;
+            font-size: 18px;
+            font-weight: bold;
+            text-decoration: none; /* Removes underline */
+            border-radius: 10px;
+            transition: 0.3s;
+            z-index: 1000;
+            display: inline-block;
+        }
+
+        .enroll-btn:hover {
+            background: #ffffff;
+            color: black;
+        }
+
+
+
+        /* Main Course Container */
+        .course-container {
+            text-align: center;
+            max-width: 900px;
+            margin: 80px auto;
+        }
+
+        h1 {
+            font-size: 50px;
+            margin-bottom: 20px;
+        }
+
+        /* Expandable Blurred Container */
+        .course-info {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 30px;
+            transition: max-height 0.5s ease-in-out;
+            max-height: 700px;
+            overflow: hidden;
+        }
+
+        .course-info h2 {
+            font-size: 28px;
+            margin-bottom: 15px;
+        }
+
+        .course-info p {
+            font-size: 18px;
+            text-align: justify;
+            margin-bottom: 15px;
+        }
+
+        /* Key Details Section */
+        .key-details {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 20px;
+            border-radius: 30px;
+            margin-top: 20px;
+            text-align: left;
+        }
+
+        .key-details h2 {
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        .key-details ul {
+            list-style: none;
+            font-size: 18px;
+        }
+
+        .key-details ul li {
+            margin: 5px 0;
+        }
+
+        /* Platform Section */
+        .platform-container {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 20px;
+            border-radius: 30px;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .platform-container h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .platform-container img {
+            width: 100px;
+            height: auto;
+        }
+        /* Key Details Section */
+.key-details {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    border-radius: 30px;
+    margin-top: 20px;
+    text-align: left;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+/* Two-column layout */
+.key-details .column {
+    width: 48%; /* Each column takes 48% width */
+}
+
+/* List Styling */
+.key-details ul {
+    list-style: none;
+    font-size: 18px;
+    padding: 0;
+}
+
+.key-details ul li {
+    margin: 5px 0;
+}
+/* Big Container */
+.big-container {
+    background: rgba(255, 255, 255, 0.1); /* Light blur effect */
+    backdrop-filter: blur(10px);
+    padding: 5px 0 20px 0;
+    border-radius: 30px;
+    margin-top: 70px;
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-bottom: 70px;
+}
+
+/* Key Details Section (Two-Column Layout) */
+.key-details {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+
+}
+
+.key-details h2 {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.key-details .column {
+    width: 48%;
+}
+
+/* Responsive Fix for Smaller Screens */
+@media (max-width: 768px) {
+    .key-details {
+        flex-direction: column;
+        align-items: center;
+    }
+    .key-details .column {
+        width: 100%;
+    }
+}
+/* Hide scrollbar for WebKit browsers (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+    display: none;
+}
+
+/* Ensure scrolling still works */
+body {
+    overflow-y: auto; /* Enables vertical scrolling */
+    -ms-overflow-style: none;  /* Hide scrollbar for IE and Edge */
+    scrollbar-width: none;  /* Hide scrollbar for Firefox */
+}
+/* Responsive Styling */
+@media (max-width: 768px) {
+      .nav-links {
+        gap: 10px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .nav-links a {
+        font-size: 14px;
+        padding: 8px 12px;
+      }
+
+      h1 {
+        font-size: 1.6rem;
+      }
+
+      p {
+        font-size: 13px;
+      }
+
+      .key-details {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .key-details .column {
+        width: 100%;
+      }
+
+      .fixed-donate-btn {
+        top: 55px;
+        right: 10px;
+        padding: 10px 15px;
+      }
+
+      .enroll-btn {
+        font-size: 16px;
+        padding: 10px 20px;
+      }
+
+      .logo {
+        height: 30px;
+      }
+
+      .big-container {
+      padding: 0px 0 2px 0;
+      border-radius: 30px;
+      margin: 70px 10px;
+      height: auto;
+     }
+     .big-container h1{
+        padding: 30px;
+        margin-right: 10px;
+        margin-left: 10px;
+     }
+     * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.course-info {
+  padding: 20px;
+  border-radius: 30px;
+  overflow: visible; /* allow content to grow naturally on desktop */
+  margin-right: 10px;
+  margin-left: 10px;
+}
+.course-info {
+    max-height: 900px;
+    overflow-y: auto;
+  }
+  .course-info p{
+font-size: 15px;
+font-weight: lighter;
+  }
+
+     .key-details {
+      padding: 20px;
+      border-radius: 30px;
+      margin-top: 20px;
+      margin-right: 10px;
+      margin-left: 10px;
+    }
+    .key-details li{
+font-size: 15px;
+font-weight: lighter;
+  }
+    .platform-container{
+        margin-right: 10px;
+        margin-left: 10px;
+    }
+}
+
+/* Full-Screen Loader */
+#loading-screen {
+            position: fixed;
+            width: 100%;
+            height: 100vh;
+            background: black;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            top: 0;
+            left: 0;
+        }
+
+        /* Centering the Loading Text and Orbit */
+        .loading-container {
+            position: relative;
+            text-align: center;
+        }
+
+        /* Orbit Effect */
+        .orbit {
+            position: absolute;
+            width: 100px; /* Orbit size */
+            height: 100px; /* Orbit size */
+            top: -70px; /* Adjusts feather start position */
+            left: 50%;
+            transform: translateX(-50%);
+            animation: orbitMotion 2.5s linear infinite;
+        }
+
+        /* Feather (Width 40px and Centered Properly) */
+        #loading-feather {
+            width: 50px; /* Feather size reduced */
+            height: auto;
+            position: absolute;
+            top: 50%;  /* Align to center */
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        /* Circular Motion WITHOUT Rotating the Feather */
+        @keyframes orbitMotion {
+            0% { transform: rotate(0deg) translateX(50px) rotate(0deg); }
+            25% { transform: rotate(90deg) translateX(50px) rotate(0deg); }
+            50% { transform: rotate(180deg) translateX(50px) rotate(0deg); }
+            75% { transform: rotate(270deg) translateX(50px) rotate(0deg); }
+            100% { transform: rotate(360deg) translateX(50px) rotate(0deg); }
+        }
+
+        /* Loading Text */
+        .loading-container p {
+            font-size: 20px;
+            margin-top: 60px;
+            font-family: Arial, sans-serif;
+            color: white;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="loading-screen">
+        <div class="loading-container">
+            <div class="orbit">
+                <img src="../Assets/Images/peacock feather.png" id="loading-feather" alt="Peacock Feather">
+            </div>
+            <p>Loading, please wait...</p>
+        </div>
+    </div>
+    
+    
+    <script>
+        window.addEventListener("load", function() {
+            setTimeout(function() {
+                document.getElementById("loading-screen").style.display = "none";
+            }, 500); // Delay to show animation before page loads
+        });
+    </script>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <img src="../Assets/Images/4.png" alt="Logo" class="logo">
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="./Assets/AboutMe/Aboutme.html">About</a></li>
+            <li><a href="./ContactUs.html">Contact Us</a></li>
+        </ul>
+    </nav>
+ <!-- Donate Button (Added at the last position) -->
+ <a href="../Dbtn/Donation.html" class="donate-btn fixed-donate-btn">Contribute</a>
+    <!-- Enroll Now Button -->
+<!-- Fixed Enroll Now Button (Using <a> Tag) -->
+    <a href="https://forms.gle/xTvSUYnNZ3aySthW6" class="enroll-btn">Enroll Now</a>
+
+        <!-- Big Container -->
+<div class="big-container">
+
+   <!-- Course Content -->
+<div class="course-container">
+    <h1>Namavalis</h1>
+
+    <!-- Course Description -->
+    <div class="course-info">
+        <h2>Course Description</h2>
+        <p>Namavalis are short, repetitive bhajans that focus on chanting the divine names of deities. These devotional songs are easy to learn and sing, making them accessible to people of all ages. They are widely used in temples, spiritual gatherings, and household prayers to invoke divine presence and devotion.</p>
+        <p>This course will introduce students to a variety of Namavalis dedicated to Lord Rama, Krishna, Shiva, Devi, and other deities. Emphasis will be placed on pronunciation, rhythm, and devotion, ensuring that students can sing with clarity and bhava (emotion). The course is suitable for beginners as well as experienced singers looking to expand their repertoire of bhajans.</p>
+    </div>
+
+    <!-- Key Details -->
+    <div class="key-details">
+        <h2>Key Details</h2>
+        <div class="column">
+            <ul>
+                <li><strong>Difficulty Level:</strong> Beginner to Intermediate</li>
+                <li><strong>Course Duration:</strong> 8 Weeks</li>
+                <li><strong>Instructor:</strong> Experienced Bhajan Singers</li>
+                <li><strong>Mode:</strong> Online (Live)</li>
+                <li><strong>Class Frequency:</strong> Twice a Week</li>
+            </ul>
+        </div>
+        <div class="column">
+            <ul>
+                <li><strong>Learning Material:</strong> Audio Recordings & Lyrics</li>
+                <li><strong>Assessment:</strong> Practical Singing & Group Recitation</li>
+                <li><strong>Pre-requisites:</strong> No prior experience required</li>
+                <li><strong>Languages:</strong> Sanskrit, Tamil & Hindi</li>
+                <li><strong>Certificate:</strong> Provided upon completion</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Platform Section -->
+    <div class="platform-container">
+        <h2>Platform</h2>
+        <img src="./img/gmeet.png" alt="Google Meet Logo">
+        <p>Live sessions will be conducted via Google Meet.</p>
+    </div>
+</div>
+
+</body>
+</html>

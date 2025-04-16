@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resources Page</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: url('./Assets/Images/2.png') no-repeat center center fixed;
+            background-size: cover;
+        }
+                /* Donate Button Styles */
+.donate-btn {
+    background: #ff9800; /* Orange donate button */
+    color: white;
+    padding: 10px 20px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.3s ease;
+}
+
+.donate-btn:hover {
+    background: white;
+    color: #ff9800;
+}
+
+/* Fixed Donate Button at Top Right */
+.fixed-donate-btn {
+    position: fixed;  /* Keeps it fixed on screen */
+    top: 80px;  /* Distance from the top */
+    right: 20px;  /* Distance from the right */
+    background: #ff9800;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.3s ease;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    z-index: 9999;  /* Ensures it stays above all elements */
+}
+
+/* Hover effect */
+.fixed-donate-btn:hover {
+    background: white;
+    color: #ff9800;
+}
+        .navbar {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: transparent;
+            padding: 15px 20px;
+            width: 100%;
+            position: relative;
+        }
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+        .nav-links li {
+            margin: 0;
+        }
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 400;
+            transition: 0.3s;
+            padding: 10px 15px;
+            border-radius: 15px;
+            position: relative;
+            z-index: 1;
+        }
+        .nav-links a::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            backdrop-filter: blur(5px);
+            opacity: 0;
+            transition: opacity 0.3s;
+            z-index: -1;
+        }
+        .nav-links a:hover::before {
+            opacity: 1;
+        }
+        .nav-links a:hover {
+            color: #ffffff;
+        }
+        .menu-toggle {
+            display: none;
+            font-size: 24px;
+            color: white;
+            cursor: pointer;
+        }
+        .logo {
+            position: absolute;
+            left: 20px;
+            height: 40px;
+            margin-left: 50px;
+            margin-top: 20px;
+        }
+        
+        /* Section Styling */
+        .buy-books {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: transparent;
+            padding: 50px 10%;
+            overflow: hidden;
+        }
+
+        /* Left Side: Text Content */
+        .book-content {
+            max-width: 500px;
+        }
+
+        .book-content h1 {
+            font-size: 40px;
+            color: #ffffff;
+        }
+
+        .book-content p {
+            font-size: 18px;
+            color: #ffffff;
+            margin: 15px 0;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background: transparent;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 25px;
+            border: 2px solid white;
+            margin-right: 10px;
+            transition: background 0.3s ease;
+        }
+
+        .btn:hover {
+            background: white;
+            color: black;
+        }
+
+     
+        .container {
+            width: 90%;
+            height: 80%;
+            max-width: 1200px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        h1 {
+            font-size: 40px;
+            margin-bottom: 20px;
+            margin-left: 50px;
+            color: white;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+        }
+        .table-container {
+            margin-left: 110px;
+            width: 90%;
+            height: 80%;
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 30px;
+            padding: 20px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 12px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+            color: white;
+            text-align: center;
+        }
+        th {
+            background: rgba(255, 255, 255, 0.3);
+        }
+        a {
+            color: cyan;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .faq-container {
+            margin-left:250px;
+            width: 90%;
+            max-width: 800px;
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 30px;
+            padding: 20px;
+            margin-top: 20px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        .faq-item {
+            background: transparent;
+            margin-bottom: 10px;
+            padding: 15px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+            font-weight: bold;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+        }
+        .faq-answer {
+            display: none;
+            padding: 10px;
+            color: white;
+        }
+        .form-container {
+            width: 90%;
+            max-width: 600px;
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 30px;
+            padding: 20px;
+            margin-left: 370px;
+            margin-bottom: 200px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        input, textarea {
+            margin: 10px 0;
+            padding: 10px;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            width: 100%;
+        }
+        button {
+            padding: 10px;
+            border: none;
+            border-radius: 10px;
+            background:transparent;
+            color: rgb(255, 255, 255);
+            border: solid;
+            font-size: 16px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        button:hover {
+            background: white;
+            color: black;
+            border: 0;
+        }
+        .place{
+            background-color: transparent;
+        }
+        .section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 1s ease-out, transform 1s ease-out;
+            padding: 50px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+        }
+        .show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        @media (max-width: 768px) {
+            .navbar ul{
+                margin-left: 40px;
+            }
+            .nav-links {
+        gap: 10px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .nav-links a {
+        font-size: 14px;
+        padding: 8px 12px;
+      }
+
+    h1 {
+        font-size: 24px;
+        margin-left: 0;
+        text-align: center;
+    }
+
+    .table-container {
+        margin-left: 0;
+        width: 100%;
+        height: 300px; /* Set a height for scrollability */
+        overflow-y: auto; /* Enable vertical scroll */
+        padding: 10px;
+    }
+
+    table {
+        font-size: 14px;
+    }
+
+    .faq-container {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .form-container {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .book-content h1 {
+        font-size: 24px;
+    }
+
+    .book-content p {
+        font-size: 14px;
+    }
+
+    .buy-books {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .book-images {
+        width: 100%;
+        height: auto;
+        margin-top: 20px;
+    }
+
+    .book-img {
+        width: 100px;
+    }
+
+    .container {
+        width: 100%;
+    }
+
+    .fixed-donate-btn {
+        top: 20px;
+        right: 10px;
+        padding: 10px 16px;
+        font-size: 14px;
+    }
+
+    .btn {
+        padding: 8px 16px;
+        margin-bottom: 10px;
+        font-size: 14px;
+    }
+    .book-content h1 {
+            font-size: 30px;
+            margin-top: 70px;
+        }
+        .logo {
+            margin-left: 0px;
+        }
+        .fixed-donate-btn {
+        top: 55px;
+        right: 10px;
+        padding: 10px 15px;
+      }
+      .container h1{
+        margin-top: 70px;
+      }
+      .table-container{
+        width: 350px;
+      }
+      .table-container th{
+        border-radius: 5px;
+      }
+      .faq-container{
+        width: 350px;
+        margin-left: 15px;
+      }
+      .form-container{
+        width: 350px;
+        margin-left: 14px;
+      }
+}
+/* Full-Screen Loader */
+#loading-screen {
+            position: fixed;
+            width: 100%;
+            height: 100vh;
+            background: black;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            top: 0;
+            left: 0;
+        }
+
+        /* Centering the Loading Text and Orbit */
+        .loading-container {
+            position: relative;
+            text-align: center;
+        }
+
+        /* Orbit Effect */
+        .orbit {
+            position: absolute;
+            width: 100px; /* Orbit size */
+            height: 100px; /* Orbit size */
+            top: -70px; /* Adjusts feather start position */
+            left: 50%;
+            transform: translateX(-50%);
+            animation: orbitMotion 2.5s linear infinite;
+        }
+
+        /* Feather (Width 40px and Centered Properly) */
+        #loading-feather {
+            width: 50px; /* Feather size reduced */
+            height: auto;
+            position: absolute;
+            top: 50%;  /* Align to center */
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        /* Circular Motion WITHOUT Rotating the Feather */
+        @keyframes orbitMotion {
+            0% { transform: rotate(0deg) translateX(50px) rotate(0deg); }
+            25% { transform: rotate(90deg) translateX(50px) rotate(0deg); }
+            50% { transform: rotate(180deg) translateX(50px) rotate(0deg); }
+            75% { transform: rotate(270deg) translateX(50px) rotate(0deg); }
+            100% { transform: rotate(360deg) translateX(50px) rotate(0deg); }
+        }
+
+        /* Loading Text */
+        .loading-container p {
+            font-size: 20px;
+            margin-top: 60px;
+            font-family: Arial, sans-serif;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div id="loading-screen">
+        <div class="loading-container">
+            <div class="orbit">
+                <img src="./Assets/Images/peacock feather.png" id="loading-feather" alt="Peacock Feather">
+            </div>
+            <p>Loading, please wait...</p>
+        </div>
+    </div>
+    
+    
+    <script>
+        window.addEventListener("load", function() {
+            setTimeout(function() {
+                document.getElementById("loading-screen").style.display = "none";
+            }, 2000); // Delay to show animation before page loads
+        });
+    </script>
+    <nav class="navbar">
+        <img src="./Assets/Images/4.png" alt="Logo" class="logo">
+        <ul class="nav-links" id="navLinks">
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="./Assets/AboutMe/Aboutme.html">About</a></li>
+            <li><a href="./ContactUs.html">Contact Us</a></li>
+        </ul>
+    </nav>
+
+     <!-- Donate Button (Added at the last position) -->
+     <a href="./Dbtn/Donation.html" class="donate-btn fixed-donate-btn">Contribute</a>
+
+    <section class="buy-books">
+        <div class="book-content">
+            <h1>BOOKS</h1>
+            <p>Explore our collection of books that will deepen your knowledge and understanding. Browse through a variety of genres and find the perfect book for you.</p>
+            <a href="https://yourbookstorelink.com" class="btn">Know More</a>
+            <a href="https://yourbookstorelink.com" class="btn buy-btn">Buy Books</a>
+        </div>
+    
+
+    </section>
+
+    <section class="container">
+        <h1>Notes and PDFs</h1>
+        <div class="table-container">
+            <table>
+                <tr>
+                    <th>Resource Name</th>
+                    <th>Download Link</th>
+                </tr>
+                <tr>
+                    <td>Resource 1</td>
+                    <td><a href="#">Coming Soon</a></td>
+                </tr>
+                <tr>
+                    <td>Resource 2</td>
+                    <td><a href="#">Coming Soon</a></td>
+                </tr>
+                <tr>
+                    <td>Resource 3</td>
+                    <td><a href="#">Coming Soon</a></td>
+                </tr>
+                <tr>
+                    <td>Resource 4</td>
+                    <td><a href="#">Coming Soon</a></td>
+                </tr>
+                
+            </table>
+        </div>
+    </section>
+
+    <h2 style="color: white; text-align: center; margin-top: 170px; font-size: 30px;">Frequently Asked Questions</h2>
+
+    <section class="faq-container">
+        <div class="faq-item" onclick="toggleAnswer(this)">
+            <span>What is the minimum age requirement for joining the classes?</span>
+            <span>▼</span>
+        </div>
+        <div class="faq-answer">There is no strict age limit, but a basic ability to follow instructions is required.</div><hr>
+        
+        <div class="faq-item" onclick="toggleAnswer(this)">
+            <span>Do I need any prior music experience?</span>
+            <span>▼</span>
+        </div>
+        <div class="faq-answer">No, beginners are welcome. We start from the basics.</div><hr>
+        
+        <div class="faq-item" onclick="toggleAnswer(this)">
+            <span>Which language is used for instruction?</span>
+            <span>▼</span>
+        </div>
+        <div class="faq-answer">Classes are conducted in English and Tamil/Malayalam as needed.</div><hr>
+        
+        <div class="faq-item" onclick="toggleAnswer(this)">
+            <span>Do I need any instruments to start?</span>
+            <span>▼</span>
+        </div>
+        <div class="faq-answer">While instruments can be helpful, vocal classes do not require them.</div><hr>
+        
+        <div class="faq-item" onclick="toggleAnswer(this)">
+            <span>Are classes conducted online?</span>
+            <span>▼</span>
+        </div>
+        <div class="faq-answer">Yes, all classes are conducted via Google Meet.</div><hr>
+        
+    </section>
+    <script>
+        function toggleAnswer(element) {
+            let answer = element.nextElementSibling;
+            answer.style.display = (answer.style.display === 'block') ? 'none' : 'block';
+        }
+    </script>
+
+    <h2 style="color: white; font-size: 40px; text-align: center; margin-top: 100px; margin-bottom: 20px;">Ask Questions</h2>
+<section class="form-container">
+    <form id="contact-form">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <input type="tel" name="whatsapp" placeholder="Your WhatsApp Number" required>
+        <textarea name="message" placeholder="Your Message" rows="4" required></textarea>
+        <button type="submit">Send Message</button>
+    </form>
+    
+    
+    <script>
+        document.querySelector("form").addEventListener("submit", function(event) {
+            event.preventDefault();
+            
+            let form = event.target;
+            let formData = new FormData(form);
+            
+            let data = {
+                name: formData.get("name"),
+                email: formData.get("email"),
+                whatsapp: formData.get("whatsapp"),
+                message: formData.get("message")
+            };
+        
+            fetch("https://script.google.com/macros/s/AKfycbxqcYF9KDSfPNI-yKCQNb6Hc5IEEAYshtYzZ7SYjUwvXiQNsXpau30Oot52cFd8AqvL/exec", {
+                method: "POST",
+                mode: "no-cors",  // This prevents CORS errors
+                body: JSON.stringify(data),
+                headers: { "Content-Type": "application/json" }
+            }).then(() => {
+                alert("Message Sent Successfully!");
+                form.reset();
+            }).catch(error => {
+                console.error("Error:", error);
+                alert("Error sending message.");
+            });
+        });
+        </script>
+        
+        
+    
+</section>
+
+
+    <script>
+        function toggleMenu() {
+            document.getElementById('navLinks').classList.toggle('active');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
+</head>
+<body>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url(./Assets/AboutMe/Minimalist\ Vintage\ Line\ A4\ Stationery\ Paper\ Document.jpg) no-repeat center center/cover;
+            color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+                /* Donate Button Styles */
+.donate-btn {
+    background: #ff9800; /* Orange donate button */
+    color: white;
+    padding: 10px 20px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.3s ease;
+}
+
+.donate-btn:hover {
+    background: white;
+    color: #ff9800;
+}
+
+/* Fixed Donate Button at Top Right */
+.fixed-donate-btn {
+    position: fixed;  /* Keeps it fixed on screen */
+    top: 10px;  /* Distance from the top */
+    right: 20px;  /* Distance from the right */
+    background: #ff9800;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.3s ease;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    z-index: 9999;  /* Ensures it stays above all elements */
+}
+
+/* Hover effect */
+.fixed-donate-btn:hover {
+    background: white;
+    color: #ff9800;
+}
+        .container {
+            max-width: 800px;
+            background: rgba(101, 131, 106, 0.411);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            position: relative;
+            animation: fadeIn 1s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .icon-links a {
+            display: inline-block;
+            margin: 15px;
+            font-size: 50px;
+            color: #ffffff;
+            text-decoration: none;
+            transition: transform 0.3s ease-in-out;
+        }
+        .icon-links a:hover {
+            transform: scale(1.3);
+        }
+        .youtube-container {
+            position: relative;
+            display: inline-block;
+        }
+        .channel-links {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 60px;
+            background: rgba(101, 131, 106, 0.63);
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+            transition: opacity 0.3s ease-in-out;
+        }
+        .channel-links a {
+            display: flex;
+            align-items: center;
+            margin: 5px 0;
+            text-decoration: none;
+            color: #ffffff;
+            font-size: 18px;
+            text-align: left;
+        }
+        .channel-links img {
+            width: 60px;
+            height: 60px;
+            margin-right: 10px;
+            vertical-align: middle;
+            border-radius: 50%;
+        }
+        .youtube-container:hover .channel-links {
+            display: block;
+            opacity: 1;
+        }
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .container {
+                max-width: 600px;
+            }
+            .icon-links a {
+                font-size: 40px;
+            }
+        }
+        @media (max-width: 768px) {
+            .container {
+                max-width: 90%;
+                padding: 15px;
+            }
+            .icon-links a {
+                font-size: 35px;
+            }
+
+        }
+        @media (max-width: 480px) {
+            .container {
+                max-width: 80%;
+                padding: 10px;
+            }
+            .icon-links a {
+                font-size: 30px;
+            }
+            .channel-links {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        }
+        .toggle-channels {
+            display: none;
+            margin-top: 10px;
+            padding: 8px 15px;
+            border: none;
+            background: #cc0000;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .toggle-channels:hover {
+            background: #a00000;
+        }
+        @media (max-width: 480px) {
+            .channel-links {
+                position: static;
+                transform: none;
+                display: none;
+                background: transparent;
+                box-shadow: none;
+            }
+            .toggle-channels {
+                display: inline-block;
+            }
+            .fixed-donate-btn {
+                padding: 12px 15px;
+                font-size: 13px;
+            }
+        }
+        /* Full-Screen Loader */
+        #loading-screen {
+            position: fixed;
+            width: 100%;
+            height: 100vh;
+            background: black;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            top: 0;
+            left: 0;
+        }
+
+        /* Centering the Loading Text and Orbit */
+        .loading-container {
+            position: relative;
+            text-align: center;
+        }
+
+        /* Orbit Effect */
+        .orbit {
+            position: absolute;
+            width: 100px; /* Orbit size */
+            height: 100px; /* Orbit size */
+            top: -70px; /* Adjusts feather start position */
+            left: 50%;
+            transform: translateX(-50%);
+            animation: orbitMotion 2.5s linear infinite;
+        }
+
+        /* Feather (Width 40px and Centered Properly) */
+        #loading-feather {
+            width: 50px; /* Feather size reduced */
+            height: auto;
+            position: absolute;
+            top: 50%;  /* Align to center */
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        /* Circular Motion WITHOUT Rotating the Feather */
+        @keyframes orbitMotion {
+            0% { transform: rotate(0deg) translateX(50px) rotate(0deg); }
+            25% { transform: rotate(90deg) translateX(50px) rotate(0deg); }
+            50% { transform: rotate(180deg) translateX(50px) rotate(0deg); }
+            75% { transform: rotate(270deg) translateX(50px) rotate(0deg); }
+            100% { transform: rotate(360deg) translateX(50px) rotate(0deg); }
+        }
+
+        /* Loading Text */
+        .loading-container p {
+            font-size: 20px;
+            margin-top: 60px;
+            font-family: Arial, sans-serif;
+            color: white;
+        }
+        /* Full-Screen Loader */
+#loading-screen {
+            position: fixed;
+            width: 100%;
+            height: 100vh;
+            background: black;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            top: 0;
+            left: 0;
+        }
+
+        /* Centering the Loading Text and Orbit */
+        .loading-container {
+            position: relative;
+            text-align: center;
+        }
+
+        /* Orbit Effect */
+        .orbit {
+            position: absolute;
+            width: 100px; /* Orbit size */
+            height: 100px; /* Orbit size */
+            top: -70px; /* Adjusts feather start position */
+            left: 50%;
+            transform: translateX(-50%);
+            animation: orbitMotion 2.5s linear infinite;
+        }
+
+        /* Feather (Width 40px and Centered Properly) */
+        #loading-feather {
+            width: 50px; /* Feather size reduced */
+            height: auto;
+            position: absolute;
+            top: 50%;  /* Align to center */
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        /* Circular Motion WITHOUT Rotating the Feather */
+        @keyframes orbitMotion {
+            0% { transform: rotate(0deg) translateX(50px) rotate(0deg); }
+            25% { transform: rotate(90deg) translateX(50px) rotate(0deg); }
+            50% { transform: rotate(180deg) translateX(50px) rotate(0deg); }
+            75% { transform: rotate(270deg) translateX(50px) rotate(0deg); }
+            100% { transform: rotate(360deg) translateX(50px) rotate(0deg); }
+        }
+
+        /* Loading Text */
+        .loading-container p {
+            font-size: 20px;
+            margin-top: 60px;
+            font-family: Arial, sans-serif;
+            color: white;
+        }
+    </style>
+    <div id="loading-screen">
+        <div class="loading-container">
+            <div class="orbit">
+                <img src="./Assets/Images/peacock feather.png" id="loading-feather" alt="Peacock Feather">
+            </div>
+            <p>Loading, please wait...</p>
+        </div>
+    </div>
+    
+    
+    <script>
+        window.addEventListener("load", function() {
+            setTimeout(function() {
+                document.getElementById("loading-screen").style.display = "none";
+            }, 500); // Delay to show animation before page loads
+        });
+    </script>
+     <!-- Donate Button (Added at the last position) -->
+     <a href="./Dbtn/Donation.html" class="donate-btn fixed-donate-btn">Contribute</a>
+    <div class="container">
+        <h1>Contact Us</h1>
+        <p>Connect with us through our social media and communication platforms.</p>
+        <p>Click on Icons to Contact Us, Let's Start Our Journey Together Radhe Krishna !!</p>
+        <div class="icon-links">
+            <a href="https://wa.me/917012438814" target="_blank"><i class='bx bxl-whatsapp'></i></a>
+            <a href="https://www.facebook.com/people/Pibatha-Bhagavatam/61563913965243/" target="_blank"><i class='bx bxl-facebook-circle'></i></a>
+            <div class="youtube-container">
+                <a href="#"><i class='bx bxl-youtube'></i></a>
+                <div class="channel-links">
+                    <a href="https://www.youtube.com/channel/UCVIDnKnxv3pOfCh176DrREw" target="_blank">
+                        <img src="./Assets/Images/4.png" alt="ASMR Channel"> Pibatha Bhagavatam
+                    </a>
+                    <a href="https://www.youtube.com/channel/UCFtDG_nyb408FEONKmW3_pQ" target="_blank">
+                        <img src="./Assets/Images/11.png" alt="Jazz Channel"> Pibatha Sangeetham
+                    </a>
+                </div>
+            </div>
+            <a href="mailto:pibathabhagavatam@gmail.com"><i class='bx bx-envelope'></i></a>
+        </div>
+    </div>
+    <script>
+        document.querySelector(".toggle-channels").addEventListener("click", function() {
+            var links = document.querySelector(".channel-links");
+            if (links.style.display === "block") {
+                links.style.display = "none";
+            } else {
+                links.style.display = "block";
+            }
+        });
+    </script>
+</body>
+</html>

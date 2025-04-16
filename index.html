@@ -1,0 +1,526 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="./style.css">
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+        <title>Pibatha Bhagavatam</title>
+
+        
+    </head>
+    <body>
+
+        <div id="loading-screen">
+            <div class="loading-container">
+                <div class="orbit">
+                    <img src="./Assets/Images/peacock feather.png" id="loading-feather" alt="Peacock Feather">
+                </div>
+                <p>Loading, please wait...</p>
+            </div>
+        </div>
+        
+        
+        <script>
+            window.addEventListener("load", function() {
+                setTimeout(function() {
+                    document.getElementById("loading-screen").style.display = "none";
+                }, 2000); // Delay to show animation before page loads
+            });
+        </script>
+
+        <nav class="navbar" id="navbar">
+            <div class="logo">
+                <img src="./Assets/Images/4.png" alt="">
+            </div>
+            <ul class="nav-links">
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#courses">Courses</a></li>
+                <li><a href="./ContactUs.html">Contact</a></li>
+                <li>
+                    <a href="#shop">Shop</a>
+
+                </li>
+                <li><a href="https://www.facebook.com/people/Pibatha-Bhagavatam/61563913965243/"><i class='bx bxl-facebook-circle'></i></a></li>
+                <li><a href="https://www.youtube.com/channel/UCVIDnKnxv3pOfCh176DrREw"><i class='bx bxl-youtube'></i></a></li>
+                <li><a href="https://wa.me/917012438814"><i class='bx bxl-whatsapp'></i></a></li>
+            </ul>
+            <div class="menu-toggle">☰</div>
+        </nav>
+        
+                        <!-- Donate Button (Added at the last position) -->
+                        <a href="./Dbtn/Donation.html" class="donate-btn fixed-donate-btn">Contribute</a>
+  
+        <section id="hero" class="hero-section">
+            <div class="text-container">
+                <img src="./Assets/Images/peacock feather.png" alt="Peacock Feather" class="feather">
+                <h1 class="hidden-text">Pibatha Bhagavatam</h1>
+            </div>
+        </section>
+    
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const feather = document.querySelector(".feather");
+                const text = document.querySelector(".hidden-text");
+        
+                // Listen for when the feather animation ends
+                feather.addEventListener("animationend", function () {
+                    text.style.opacity = "1"; // Show the text
+                });
+            });
+        </script>
+        
+        
+        
+        <section id="about" class="about-section">
+            <div class="about-image">
+                <a href="./Assets/AboutMe/Aboutme.html"><img src="./Assets/SuPics/3.jpg" alt="Your Image"></a>
+            </div>
+            <div class="aboucontainer">
+                <div class="about-content">
+                <h1>About Me</h1>
+                <p class="about-text">Welcome to Pibatha Bhagavatam! I am dedicated to spreading the knowledge and beauty of Carnatic music. With years of experience and deep-rooted passion, I guide students through the traditional aspects of Sangeetha Adhyayanam and Aradhana. Join my classes to embark on a journey into the divine world of music.</p>
+                <a class="read-more-btn" href="./Assets/AboutMe/Aboutme.html">Read More</a>
+                </div>
+            </div>
+            
+
+        </section>
+    
+        <section id="courses" class="course-section">
+            <div class="course-text">
+                <h1>Explore Our Courses</h1>
+                <p>Whether you're a beginner or an advanced learner, we offer a range of courses tailored to suit your needs.</p>
+                <a href="./Courses/Courses.html" class="view-courses-btn">View All Courses</a>
+            </div>
+            <div class="Coursecontainer">
+                <div class="Coursegallery" id="CourseGallery"></div>
+            </div>
+            
+        </section>
+        
+        <section id="journey" class="journey-section">
+            <h1 class="heading">Ready to Begin Your Musical Journey?</h1>
+            <div class="journey-buttons">
+                <a class="contact" href="./ContactUs.html">Contact Us</a>
+                <a class="enroll" href="https://forms.gle/xTvSUYnNZ3aySthW6">Enroll Today</a>
+            </div>
+        </section>
+
+        <section id="resources" class="resource-section"> 
+            <!-- Right Side: Title & Description -->
+            <div class="resource-content">
+                <h1 class="heading">Resource Section</h1>
+                <p class="resource-description">
+                    Enhance your learning experience with our exclusive video lessons, designed specifically for our students.
+                </p>
+                <a class="view-more-btn" href="./Resources.html">View More</a>
+            </div>
+
+                        <!-- Left Side: Scrollable Container -->
+                        <div class="resource-container">
+                            <div class="resource-card">
+                                <h2>Books</h2>
+                                <p class="resource-text">Introduction to basic music theory and notation.</p>
+                                <a href="./Resources.html" class="know-more-btn">Know More</a>
+                            </div>
+                            <div class="resource-card">
+                                <h2>Notes & PDFs</h2>
+                                <p class="resource-text">Understanding rhythm and beats for beginners.</p>
+                                <a href="./Resources.html" class="know-more-btn">Know More</a>
+                            </div>
+                            <div class="resource-card">
+                                <h2>Question & Answer</h2>
+                                <p class="resource-text">Playing techniques for different musical instruments.</p>
+                                <a href="./Resources.html" class="know-more-btn">Know More</a>
+                            </div>
+                            <div class="resource-card">
+                                <h2>FAQs</h2>
+                                <p class="resource-text">Improving your vocal performance and range.</p>
+                                <a href="./Resources.html" class="know-more-btn">Know More</a>
+                            </div>
+                        </div>
+        </section>
+        
+        <section class="youtube-videos">
+            <h1>Highly Viewed Videos</h1>
+            <div class="marquee-container">
+                <div class="marquee-content">
+                    <!-- First Set of Videos -->
+                    <a href="https://www.youtube.com/watch?v=ot3jeUkFddU" class="youtube-card">
+                        <img src="./Assets/Gallery/ybt/video 1.avif" alt="Video Thumbnail">
+
+                    </a>
+                    <a href="https://www.youtube.com/watch?v=cBs_OWxC_S8" class="youtube-card">
+                        <img src="./Assets/Gallery/ybt/video 2.avif" alt="Video Thumbnail">
+
+                    </a>
+                    <a href="https://www.youtube.com/watch?v=k-VvntDwm_c" class="youtube-card">
+                        <img src="./Assets/Gallery/ybt/video 3.avif" alt="Video Thumbnail">
+
+                    </a>
+                    <a href="https://www.youtube.com/watch?v=3-6l3IcW85U" class="youtube-card">
+                        <img src="./Assets/Gallery/ybt/video 4.avif" alt="Video Thumbnail">
+
+                    </a>
+        
+                    <!-- Duplicate the same videos for continuous effect -->
+                    <a href="https://www.youtube.com/watch?v=ot3jeUkFddU" class="youtube-card">
+                        <img src="./Assets/Gallery/ybt/video 1.avif" alt="Video Thumbnail">
+
+                    </a>
+                    <a href="https://www.youtube.com/watch?v=cBs_OWxC_S8" class="youtube-card">
+                        <img src="./Assets/Gallery/ybt/video 2.avif" alt="Video Thumbnail">
+
+                    </a>
+                    <a href="https://www.youtube.com/watch?v=k-VvntDwm_c" class="youtube-card">
+                        <img src="./Assets/Gallery/ybt/video 3.avif" alt="Video Thumbnail">
+
+                    </a>
+                    <a href="https://www.youtube.com/watch?v=3-6l3IcW85U" class="youtube-card">
+                        <img src="./Assets/Gallery/ybt/video 4.avif" alt="Video Thumbnail">
+
+                    </a>
+                </div>
+            </div>
+        </section>
+           
+        <section id="events" class="sixth-section">
+            <div class="eventss">
+              <h1>Upcoming Events/News Section</h1>
+              <p>Announcements like new course launches, free orientation sessions, or Vijayadashami specials</p>
+          
+              <div class="gallery" id="gallery">
+                <a href="#" class="container active">
+                  <img src="./Assets/Images/1.gif" alt="Product 1">
+                  <h1>Event 1</h1>
+                </a>
+                <a href="#" class="container">
+                  <img src="./Assets/Images/bgssss/10.jpg" alt="Product 2">
+                  <h1>Event 2</h1>
+                </a>
+                <a href="#" class="container">
+                  <img src="./Assets/Images/bgssss/7.jpg" alt="Product 3">
+                  <h1>Event 3</h1>
+                </a>
+              </div>
+            </div>
+          </section>
+          
+          
+          <script>
+            let index = 0;
+            const containers = document.querySelectorAll(".container");
+          
+            function showNextContainer() {
+              const current = containers[index];
+              current.classList.remove("active");
+              current.classList.add("exit");
+          
+              index = (index + 1) % containers.length;
+              const next = containers[index];
+          
+              // Reset animation by forcing reflow
+              next.classList.remove("exit");
+              void next.offsetWidth; // trigger reflow
+          
+              next.classList.add("active");
+          
+              // Cleanup old container after animation
+              setTimeout(() => {
+                current.classList.remove("exit");
+              }, 800); // match animation time
+            }
+          
+            setInterval(showNextContainer, 3000);
+          </script>
+          
+          
+          
+
+
+    
+
+<section class="chatbot-section">
+    <div class="chatbot-wrapper">
+        <!-- Left Side: AI Info -->
+        <div class="chatbot-info">
+            <h2>Use New AI Chatbot</h2>
+            <p class="Radhe"><span class="radhe"> Radhe Krishna!! </span><br><br>
+
+                Experience the power of AI for instant answers and helpful guidance on your journey through Carnatic music and the teachings of Bhagavatam. Whether you're exploring devotional knowledge, seeking musical insights, or just curious, this chatbot is here to assist you.</p>
+
+<p class="note"> Note: The chatbot is still under development, so some responses may not be perfect. Thank you for your understanding! </p>
+        </div>
+
+        <!-- Right Side: Chatbot Container -->
+        <div id="chatbot-container" class="chatbot-container">
+            <div class="chatbot-header">
+                <h3>AI Assistant</h3>
+            </div>
+            <div id="chatbot-messages" class="chatbot-messages">
+                <div class="chat-message bot">
+                    <div class="chat-avatar bot-avatar">AI</div>
+                    <div class="chat-text-wrapper">
+                        <div class="chat-text">Radhe Krishna! How can I assist you today?</div>
+                    </div>
+                </div>
+                <div class="chat-message user">
+                    <div class="chat-avatar user-avatar">YOU</div>
+                    <div class="chat-text-wrapper">
+                        <div class="chat-text">What is Pibatha Bhagavatam.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="chatbot-input-container">
+                <input type="text" id="chatbot-input" placeholder="Ask me anything...">
+                <button id="send-message"><i class='bx bx-send'></i></button>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+    const chatbotMessages = document.getElementById("chatbot-messages");
+    const chatbotInput = document.getElementById("chatbot-input");
+    const sendMessageButton = document.getElementById("send-message");
+
+    function addMessage(role, text) {
+        const messageDiv = document.createElement("div");
+        messageDiv.classList.add("chat-message", role);
+
+        const avatarDiv = document.createElement("div");
+        avatarDiv.classList.add("chat-avatar", role === "bot" ? "bot-avatar" : "user-avatar");
+        avatarDiv.innerText = role === "bot" ? "AI" : "YOU";
+
+        const textWrapper = document.createElement("div");
+        textWrapper.classList.add("chat-text-wrapper");
+
+        const textDiv = document.createElement("div");
+        textDiv.classList.add("chat-text");
+        textDiv.innerText = text;
+
+        textWrapper.appendChild(textDiv);
+        messageDiv.appendChild(avatarDiv);
+        messageDiv.appendChild(textWrapper);
+        chatbotMessages.appendChild(messageDiv);
+
+        chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+    }
+
+    const websiteKnowledgeBase = {
+        "about": "Pibatha Bhagavatam is dedicated to spreading the knowledge of Carnatic music...",
+        "courses": "We offer courses on Carnatic music, bhajans, and devotional songs. You can enroll here: [link]",
+        "contact": "You can contact us via email at contact@pibathabhagavatam.com or WhatsApp +91 XXXXX XXXXX",
+        "contribute": "You can contribute to support our cause via PayPal or Razorpay. Visit our donation page here: [link]",
+        "shop": "Check out our shop for books, music courses, and exclusive merchandise! Visit [shop link]",
+        "events": "Stay updated with our latest events and online music sessions. More details here: [events link]"
+    };
+
+    async function sendMessage() {
+        const userMessage = chatbotInput.value.trim().toLowerCase();
+        if (!userMessage) return;
+
+        addMessage("user", userMessage);
+        chatbotInput.value = "";
+
+        for (const key in websiteKnowledgeBase) {
+            if (userMessage.includes(key)) {
+                addMessage("bot", websiteKnowledgeBase[key]);
+                return;
+            }
+        }
+
+        try {
+            const response = await fetch("http://localhost:5000/api/chatbot", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ message: userMessage })
+            });
+
+            const data = await response.json();
+
+            if (data.choices && data.choices.length > 0) {
+                addMessage("bot", data.choices[0].message.content);
+            } else {
+                addMessage("bot", "Sorry, I couldn't process that.");
+            }
+        } catch (error) {
+            addMessage("bot", "Error: Unable to connect to AI.");
+            console.error("API Error:", error);
+        }
+    }
+
+    sendMessageButton.addEventListener("click", sendMessage);
+    chatbotInput.addEventListener("keypress", function(event) {
+        if (event.key === "Enter") sendMessage();
+    });
+});
+
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+    const chatbotContainer = document.getElementById("chatbot-container");
+    
+    if (!chatbotContainer) {
+        console.error("Chatbot container not found.");
+        return; // Stop the script if chatbot-container is missing
+    }
+
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                chatbotContainer.style.opacity = "1";
+                chatbotContainer.style.transform = "translateY(0)";
+            }
+        });
+    }, { threshold: 0.2 });
+
+    observer.observe(chatbotContainer);
+});
+
+</script>
+
+
+        
+
+        <footer class="footer"><hr>
+            <div class="easy"><h1>EASY ACCESSIBLE LINKS</h1></div>
+            <div class="footer-section">
+                <div>
+                    <h3>Quick Links</h3>
+                    <a href="#hero">Home</a>
+                    <a href="#courses">View Courses</a>
+                    <a href="./Courses/Courses.html">Course Catalog</a>
+                    <a href="#events">Events</a>
+                    <a href="#resources">Resources</a>
+                    <a href="#lms">LMS (Coming Soon)</a>
+                    <a href="#gurus">Gurus</a>
+                </div>
+                <div>
+                    <h3>Social Media</h3>
+                    <a href="#">YouTube</a>
+                    <a href="#">Facebook</a>
+                    <a href="#">Instagram</a>
+                    <a href="#">Pibatha Bhagavatam</a>
+                    <a href="#">Pibatha Sangeetham</a>
+                </div>
+                <div>
+                    <h3>Types of Courses</h3>
+                    <a href="#">Passive Courses</a>
+                    <a href="#">Live Classes</a>
+                </div>
+            </div>
+            
+        </footer>
+        <hr><br>
+            <div class="copyright" style="text-align: center; color: white; font-size: 10px;">
+                <p>&copy; 2025 Pibatha Bhagavatam | All rights reserved.</p>
+            </div>
+            <br>
+
+
+        <script>
+            function scrollToAbout() {
+                document.getElementById('about').scrollIntoView({ behavior: 'smooth' });
+            }
+        
+            function scrollToTop() {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        </script>
+        
+
+        <script>
+            function showPopup() {
+                document.getElementById("about-popup").style.display = "block";
+            }
+            function hidePopup() {
+                document.getElementById("about-popup").style.display = "none";
+            }
+            document.querySelector('.menu-toggle').addEventListener('click', function() {
+                document.querySelector('.nav-links').classList.toggle('active');
+            });
+            
+        </script>
+
+    <script>
+                            document.addEventListener("DOMContentLoaded", function() {
+                                let observer = new IntersectionObserver(entries => {
+                                    entries.forEach(entry => {
+                                        if (entry.isIntersecting) {
+                                            entry.target.style.opacity = 1;
+                                            entry.target.style.transform = "translateY(0)";
+                                        }
+                                    });
+                                }, { threshold: 0.1 });
+                                
+                                document.querySelectorAll(".about-section, .about-text, .about-content, .about-image, .about-popup, .read-more-btn, .course-section, .course-text, .view-courses-btn, .Coursecontainer, .Coursegallery, .journey-section, .journey-buttons, .contact, .enroll, .resource-section, .resource-btn, .sixth-section, .eventss, .container, .gallery, .heading").forEach(element => {
+                                    observer.observe(element);
+                                });
+                                
+                                /* Mouse enter animation */
+                                document.querySelectorAll(".about-section, .about-text, .about-content, .about-image, .about-popup, .read-more-btn, .course-section, .course-text, .view-courses-btn, .Coursecontainer, .Coursegallery, .journey-section, .journey-buttons, .contact, .enroll, .resource-section, .resource-btn, .sixth-section, .eventss, .container, .gallery, .heading").forEach(element => {
+                                    element.addEventListener("mouseenter", () => {
+                                        element.style.opacity = 1;
+                                        element.style.transform = "translateY(0) scale(1)";
+                                        element.style.transition = "transform 0.5s ease-in-out, opacity 0.5s ease-in-out";
+                                    });
+                                });
+                            });
+    </script>
+
+        <script>
+                                        document.addEventListener("DOMContentLoaded", function () {
+                        const courseGallery = document.getElementById("CourseGallery");
+
+                        // Array of image details
+                        const galleryItems = [
+                            { title: "Thiruppavai", image: "./Assets/Gallery/goddess-andal.webp" },
+                            { title: "Ashtapathi", image: "./Assets/Gallery/goddess-andal.webp" },
+                            { title: "Carnatic Music", image: "./Assets/Gallery/carnatic.jpg" },
+                            { title: "Tharangam", image: "./Assets/Gallery/Tharangam.jpg" },
+                        ];
+
+                        // Generate gallery items dynamically
+                        galleryItems.forEach(item => {
+                            const div = document.createElement("div");
+                            div.classList.add("gmg-box");
+                            div.style.backgroundImage = `url(${item.image})`;
+
+                            const title = document.createElement("h3");
+                            title.textContent = item.title;
+
+                            div.appendChild(title);
+                            courseGallery.appendChild(div);
+                        });
+
+                        // Automatic animation logic
+                        let currentIndex = 0;
+                        const gmgBoxes = document.querySelectorAll(".gmg-box");
+
+                        function animateGallery() {
+                            // Remove 'active' class from all images
+                            gmgBoxes.forEach(box => box.classList.remove("active"));
+
+                            // Expand the current image
+                            gmgBoxes[currentIndex].classList.add("active");
+
+                            // Move to the next image, looping back to the start
+                            currentIndex = (currentIndex + 1) % gmgBoxes.length;
+                        }
+
+                        // Start animation loop
+                        setInterval(animateGallery, 2000); // Change every 2 seconds
+                    });
+
+
+        </script>
+
+    </body>
+    </html>

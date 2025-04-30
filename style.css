@@ -362,18 +362,15 @@ margin-right: 50px;
 
 
 
- /* Course Section */
+/* === Course Section === */
 .course-section {
-
     padding: 50px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-
     color: white;
 }
 
-/* Text Content (Heading and Button) */
 .course-text {
     margin-top: 70px;
     flex: 1;
@@ -416,10 +413,9 @@ margin-right: 50px;
     color: black;
 }
 
-/* Course Gallery */
+/* === Course Gallery === */
 .Coursecontainer {
     margin-top: 100px;
-
     flex: 1;
     display: flex;
     justify-content: flex-end;
@@ -428,11 +424,13 @@ margin-right: 50px;
 
 .Coursegallery {
     display: flex;
-    justify-content: center;
     align-items: center;
+    overflow: hidden;
+    width: 100%;
+    gap: 20px;
 }
 
-/* Image Boxes */
+/* === Image Boxes === */
 .gmg-box {
     width: 50px;
     height: 300px;
@@ -442,14 +440,15 @@ margin-right: 50px;
     background-position: center;
     position: relative;
     transition: width 0.5s ease-in-out;
+    flex-shrink: 0;
+    opacity: 0.5;
 }
 
-/* Expanded State */
 .gmg-box.active {
     width: 300px;
+    opacity: 1;
 }
 
-/* Title Animation */
 .gmg-box h3 {
     color: white;
     position: absolute;
@@ -707,94 +706,7 @@ margin-right: 50px;
 
 
 
-.sixth-section {
-    padding: 50px;
-    text-align: center;
-    margin-top: 100px;
-    color: white;
-  }
-  
-  .sixth-section h1 {
-    margin-top: 50px;
-    font-size: 40px;
-    font-family: "Roboto Slab", serif;
-  }
-  
-  .sixth-section p {
-    margin-top: 10px;
-  }
-  
-  @keyframes slideInFromRight {
-    from {
-      transform: translateX(100%);
-      opacity: 0;
-    }
-    to {
-      transform: translateX(0%);
-      opacity: 1;
-    }
-  }
-  
-  @keyframes slideOutToRight {
-    from {
-      transform: translateX(0%);
-      opacity: 1;
-    }
-    to {
-      transform: translateX(100%);
-      opacity: 0;
-    }
-  }
-  
-  .gallery {
-    position: relative;
-    width: 90%;
-    max-width: 1000px;
-    height: 500px;
-    margin: 150px auto 0 auto;
-    overflow: hidden;
-    border-radius: 30px;
-  }
-  
-  .container {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    opacity: 0;
-    z-index: 0;
-    border-radius: 30px;
-    overflow: hidden;
-  }
-  
-  .container img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 30px;
-  }
-  
-  .container h1 {
-    position: absolute;
-    bottom: 20px;
-    left: 20px;
-    font-size: 30px;
-    color: white;
-    font-weight: bold;
-    z-index: 2;
-  }
-  
-  .container.active {
-    animation: slideInFromRight 0.8s forwards;
-    z-index: 2;
-  }
-  
-  .container.exit {
-    animation: slideOutToRight 0.8s forwards;
-    z-index: 1;
-  }
+
   
   
 

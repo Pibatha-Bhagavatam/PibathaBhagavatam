@@ -369,6 +369,173 @@ h1 {
             font-family: Arial, sans-serif;
             color: white;
         }
+/* --- Mobile Responsive (Tablets and below, max-width 768px) --- */
+@media (max-width: 768px) {
+  html, body {
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+    margin: 0; /* Remove default margins */
+  }
+
+  .nav-links {
+    margin-top: 10px;
+    gap: 10px;
+  }
+
+  .navbar {
+    flex-direction: column;
+  }
+
+  .logo {
+    margin-top: 15px;
+    position: left;
+    margin-bottom: 10px;
+    height: 35px;
+  }
+
+  .filter-buttons {
+    display: flex;
+    flex-direction: row; /* Ensure buttons are side by side */
+    justify-content: center;
+    gap: 10px; /* Space between buttons */
+    flex-wrap: wrap; /* Allow buttons to wrap if necessary */
+  }
+
+  .filter-btn {
+    flex: 1 1 auto; /* Allow buttons to stretch equally */
+    min-width: 120px; /* Ensure minimum button width */
+    padding: 8px 12px; /* Adjust padding */
+    font-size: 14px; /* Slightly smaller text */
+  }
+
+  h1 {
+    font-size: 32px;
+  }
+
+  .live-category .live-courses {
+    display: flex;
+    overflow-x: auto;
+    gap: 15px;
+    padding: 0 10px;
+    scroll-snap-type: x mandatory;
+  }
+
+  .course-card,
+  .course-card.live {
+    flex: 0 0 auto;
+    width: 220px;
+    scroll-snap-align: start;
+  }
+
+  /* Ensure courses-wrapper uses flex layout for passive courses */
+  .courses-wrapper.active {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);  /* two columns */
+    gap: 10px;  /* Adjust space between cards */
+    width: 100%; /* Ensure full width */
+    max-width: 100%; /* Prevent overflow */
+    box-sizing: border-box; /* Prevent padding/border breaking layout */
+  }
+
+  .courses-container.passive {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    overflow: hidden; /* Prevent horizontal scrolling */
+    width: 100%; /* Full width of container */
+  }
+
+  /* Ensure each course card inside passive container takes up half the width */
+  .courses-container.passive .course-card.passive {
+    width: calc(50% - 10px); /* Two per row, accounting for gap */
+    box-sizing: border-box; /* Ensure padding/border stay inside width */
+  }
+
+  /* Adjust the card sizes in mobile view */
+  .course-card,
+  .course-card.live {
+    width: 100%; /* Make cards full width on mobile */
+    max-width: 100%; /* Prevent cards from overflowing */
+    box-sizing: border-box; /* Ensure padding/border doesn’t break width */
+  }
+}
+
+/* --- Extra Small Screens (Phones, max-width 480px) --- */
+@media (max-width: 480px) {
+  .fixed-donate-btn {
+    top: 8px;
+    right: 8px;
+    padding: 6px 12px;
+    font-size: 10px;
+  }
+
+  .nav-links a {
+    font-size: 12px;
+    padding: 4px 8px;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+
+  .filter-btn {
+    font-size: 14px;
+    padding: 0px 15px;
+  }
+
+  .filter-buttons {
+    display: flex;
+    flex-direction: row; /* Ensure buttons are side by side */
+    justify-content: center;
+    gap: 10px; /* Add space between buttons */
+    flex-wrap: wrap; /* Allow wrapping */
+  }
+
+  .filter-btn {
+    flex: 1 1 auto; /* Allow buttons to stretch equally */
+    min-width: 120px; /* Ensure minimum button width */
+    padding: 8px 12px; /* Adjust padding */
+    font-size: 14px; /* Slightly smaller text */
+  }
+
+  .course-card,
+  .course-card.live {
+    width: 180px;
+    padding: 15px;
+  }
+
+  .course-card img {
+    border-radius: 8px;
+  }
+
+  .banner {
+    font-size: 12px;
+    padding: 4px 8px;
+  }
+
+  .courses-container.passive {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    overflow: hidden; /* Prevent horizontal scrolling */
+    width: 100%; /* Full width of container */
+  }
+
+  .courses-container.passive .course-card.passive {
+    width: calc(50% - 10px); /* Two per row, accounting for gap */
+    box-sizing: border-box; /* Ensure padding/border stay inside width */
+  }
+
+  /* Ensure the wrapper takes full width and no horizontal scroll */
+  .courses-wrapper.active {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Two columns */
+    gap: 10px; /* Adjust space between cards */
+    width: 100%; /* Ensure full width */
+    max-width: 100%; /* Prevent overflow */
+    box-sizing: border-box; /* Prevent padding/border from breaking layout */
+  }
+}
+
 
   </style>
 </head>
@@ -414,238 +581,167 @@ h1 {
 <div class="courses-wrapper active" id="passiveCourses">
   <div class="course-card passive">
     <a href="./Thiruppavai.html" target="_blank">
-      <span class="banner">Coming Soon</span>
+      <span class="banner" style="background: #28a745 ;">Apply Now</span>
       <img src="./img/Thiruppavai.jpg" alt="Passive 1">
-      <h3>Passive Course 1</h3>
-      <p>Learn at your own pace with our beginner-friendly music fundamentals course.</p>
+      <h3>Thiruppavai</h3>
     </a>
   </div>
   <div class="course-card passive">
-    <a href="link-to-passive-course-2" target="_blank">
-      <span class="banner">Coming Soon</span>
-      <img src="https://via.placeholder.com/300x180?text=Passive+2" alt="Passive 2">
-      <h3>Passive Course 2</h3>
-      <p>Explore classical ragas through guided video lessons and downloadable notes.</p>
+    <a href="./Ashtapathi.html" target="_blank">
+      <span class="banner" style="background: #28a745 ;">Apply Now</span>
+      <img src="./img/GITA GOVINDAM.jpg" alt="Passive 2">
+      <h3>Ashtapathi</h3>
     </a>
   </div>
   <div class="course-card passive">
-    <a href="link-to-passive-course-2" target="_blank">
-      <span class="banner">Coming Soon</span>
-      <img src="https://via.placeholder.com/300x180?text=Passive+2" alt="Passive 2">
-      <h3>Passive Course 2</h3>
-      <p>Explore classical ragas through guided video lessons and downloadable notes.</p>
+    <a href="./Tharangams.html" target="_blank">
+      <span class="banner" style="background: #28a745 ;">Apply Now</span>
+      <img src="./img/Leela tharangam.jpg" alt="Passive 2">
+      <h3>Tharangams</h3>
     </a>
   </div><div class="course-card passive">
-    <a href="link-to-passive-course-2" target="_blank">
+    <a href="./CarnaticBasics.html" target="_blank">
       <span class="banner">Coming Soon</span>
-      <img src="https://via.placeholder.com/300x180?text=Passive+2" alt="Passive 2">
-      <h3>Passive Course 2</h3>
-      <p>Explore classical ragas through guided video lessons and downloadable notes.</p>
+      <img src="./img/CM Basics.jpg" alt="Passive 2">
+      <h3>Carnatic Music - Basics</h3>
     </a>
   </div><div class="course-card passive">
-    <a href="link-to-passive-course-2" target="_blank">
+    <a href="./IntermediateCarnatic.html" target="_blank">
       <span class="banner">Coming Soon</span>
-      <img src="https://via.placeholder.com/300x180?text=Passive+2" alt="Passive 2">
-      <h3>Passive Course 2</h3>
-      <p>Explore classical ragas through guided video lessons and downloadable notes.</p>
+      <img src="./img/CM Intermediate.jpg" alt="Passive 2">
+      <h3>Carnatic Music - Intermediate</h3>
     </a>
   </div><div class="course-card passive">
-    <a href="link-to-passive-course-2" target="_blank">
+    <a href="./AdvanceCarnatic.html" target="_blank">
       <span class="banner">Coming Soon</span>
-      <img src="https://via.placeholder.com/300x180?text=Passive+2" alt="Passive 2">
-      <h3>Passive Course 2</h3>
-      <p>Explore classical ragas through guided video lessons and downloadable notes.</p>
+      <img src="./img/CM Advance.jpg" alt="Passive 2">
+      <h3>Carnatic Music - Advance</h3>
+    </a>
+  </div>
+  <div class="course-card passive">
+    <a href="./HindusthaniKeerthanam.html" target="_blank">
+      <span class="banner">Coming Soon</span>
+      <img src="./img/hindustani kritis.jpg" alt="Passive 2">
+      <h3>Hindusthani Kritis</h3>
+    </a>
+  </div>
+  <div class="course-card passive">
+    <a href="./OothukaduKavi.html" target="_blank">
+      <span class="banner">Coming Soon</span>
+      <img src="./img/Oothukadu.jpg" alt="Passive 2">
+      <h3>OothukaduKavi</h3>
+    </a>
+  </div>
+  <div class="course-card passive">
+    <a href="./Pancharathinam.html" target="_blank">
+      <span class="banner">Coming Soon</span>
+      <img src="./img/PR.jpg" alt="Passive 2">
+      <h3>Pancharathnam</h3>
+    </a>
+  </div>
+  <div class="course-card passive">
+    <a href="./Ragam,Tanam,Pallavi.html" target="_blank">
+      <span class="banner">Coming Soon</span>
+      <img src="./img/R T P.jpg" alt="Passive 2">
+      <h3>Ragam, Tanam, Pallavi</h3>
+    </a>
+  </div>
+  <div class="course-card passive">
+    <a href="./Abhangs.html" target="_blank">
+      <span class="banner">Coming Soon</span>
+      <img src="./img/abhangs.jpg" alt="Passive 2">
+      <h3>Abhangs</h3>
+    </a>
+  </div>
+  <div class="course-card passive">
+    <a href="./Namavalis.html" target="_blank">
+      <span class="banner">Coming Soon</span>
+      <img src="./img/Namavalis.jpg" alt="Passive 2">
+      <h3>Namavali</h3>
     </a>
   </div>
 </div>
 
 <!-- Live Classes List -->
 <div class="live-list-wrapper" id="liveCourses">
+
   <div class="live-category">
-    <h1>Beginners</h1>
+    <h1>Basics</h1>
     <div class="live-courses">
-      <div class="course-card live">
-        <a href="link-to-live-course-1" target="_blank">
-          <span class="banner">Apply Now</span>
-          <img src="./img/CM Basics.jpg" alt="Live Beginner">
-          <h3>Live Course 1</h3>
-          <p>Introduction to Indian Classical Music. Perfect for absolute beginners.</p>
-        </a>
-      </div>
-      <div class="course-card live">
-        <a href="link-to-live-course-1" target="_blank">
-          <span class="banner">Apply Now</span>
-          <img src="./img/CM Basics.jpg" alt="Live Beginner">
-          <h3>Live Course 1</h3>
-          <p>Introduction to Indian Classical Music. Perfect for absolute beginners.</p>
-        </a>
-      </div>
-      <div class="course-card live">
-        <a href="link-to-live-course-1" target="_blank">
-          <span class="banner">Apply Now</span>
-          <img src="./img/CM Basics.jpg" alt="Live Beginner">
-          <h3>Live Course 1</h3>
-          <p>Introduction to Indian Classical Music. Perfect for absolute beginners.</p>
-        </a>
-      </div>
-      <div class="course-card live">
-        <a href="link-to-live-course-1" target="_blank">
-          <span class="banner">Apply Now</span>
-          <img src="./img/CM Basics.jpg" alt="Live Beginner">
-          <h3>Live Course 1</h3>
-          <p>Introduction to Indian Classical Music. Perfect for absolute beginners.</p>
-        </a>
-      </div>
-      <div class="course-card live">
-        <a href="link-to-live-course-1" target="_blank">
-          <span class="banner">Apply Now</span>
-          <img src="./img/CM Basics.jpg" alt="Live Beginner">
-          <h3>Live Course 1</h3>
-          <p>Introduction to Indian Classical Music. Perfect for absolute beginners.</p>
-        </a>
-      </div>
-      <div class="course-card live">
-        <a href="link-to-live-course-1" target="_blank">
-          <span class="banner">Apply Now</span>
-          <img src="./img/CM Basics.jpg" alt="Live Beginner">
-          <h3>Live Course 1</h3>
-          <p>Introduction to Indian Classical Music. Perfect for absolute beginners.</p>
-        </a>
-      </div>
-    </div>
-
-    <br>
-    <br>
-    
-    <h1>Intermediate</h1>
-    <div class="live-courses">
-      <div class="course-card live">
-        <a href="link-to-live-course-2" target="_blank">
-          <span class="banner">Apply Now</span>
-          <img src="https://via.placeholder.com/300x180?text=Live+Intermediate" alt="Live Intermediate">
-          <h3>Live Course 2</h3>
-          <p>Dive deeper into rhythm and improvisation with real-time instructor feedback.</p>
-        </a>
-      </div>
-      <div class="course-card live">
-        <a href="link-to-live-course-1" target="_blank">
-          <span class="banner">Apply Now</span>
-          <img src="./img/CM Basics.jpg" alt="Live Beginner">
-          <h3>Live Course 1</h3>
-          <p>Introduction to Indian Classical Music. Perfect for absolute beginners.</p>
-        </a>
-      </div>
-      <div class="course-card live">
-        <a href="link-to-live-course-1" target="_blank">
-          <span class="banner">Apply Now</span>
-          <img src="./img/CM Basics.jpg" alt="Live Beginner">
-          <h3>Live Course 1</h3>
-          <p>Introduction to Indian Classical Music. Perfect for absolute beginners.</p>
-        </a>
-      </div>      <div class="course-card live">
-        <a href="link-to-live-course-1" target="_blank">
-          <span class="banner">Apply Now</span>
-          <img src="./img/CM Basics.jpg" alt="Live Beginner">
-          <h3>Live Course 1</h3>
-          <p>Introduction to Indian Classical Music. Perfect for absolute beginners.</p>
-        </a>
-      </div>
-      <div class="course-card live">
-        <a href="link-to-live-course-1" target="_blank">
-          <span class="banner">Apply Now</span>
-          <img src="./img/CM Basics.jpg" alt="Live Beginner">
-          <h3>Live Course 1</h3>
-          <p>Introduction to Indian Classical Music. Perfect for absolute beginners.</p>
-        </a>
-      </div>
-    </div>
-
-    <br>
-    <br>
-
-    <h1>Advanced</h1>
-    <div class="live-courses">
-      <div class="course-card live">
-        <a href="link-to-live-course-3" target="_blank">
-          <span class="banner">Apply Now</span>
-          <img src="https://via.placeholder.com/300x180?text=Live+Advanced" alt="Live Advanced">
-          <h3>Live Course 3</h3>
-          <p>Explore rare ragas and complex compositions in this advanced course.</p>
-        </a>
-      </div>
-      <div class="course-card live">
-        <a href="link-to-live-course-1" target="_blank">
-          <span class="banner">Apply Now</span>
-          <img src="./img/CM Basics.jpg" alt="Live Beginner">
-          <h3>Live Course 1</h3>
-          <p>Introduction to Indian Classical Music. Perfect for absolute beginners.</p>
-        </a>
-      </div>
-      <div class="course-card live">
-        <a href="link-to-live-course-1" target="_blank">
-          <span class="banner">Apply Now</span>
-          <img src="./img/CM Basics.jpg" alt="Live Beginner">
-          <h3>Live Course 1</h3>
-          <p>Introduction to Indian Classical Music. Perfect for absolute beginners.</p>
-        </a>
-      </div>      <div class="course-card live">
-        <a href="link-to-live-course-1" target="_blank">
-          <span class="banner">Apply Now</span>
-          <img src="./img/CM Basics.jpg" alt="Live Beginner">
-          <h3>Live Course 1</h3>
-          <p>Introduction to Indian Classical Music. Perfect for absolute beginners.</p>
-        </a>
-      </div>
-      <div class="course-card live">
-        <a href="link-to-live-course-1" target="_blank">
-          <span class="banner">Apply Now</span>
-          <img src="./img/CM Basics.jpg" alt="Live Beginner">
-          <h3>Live Course 1</h3>
-          <p>Introduction to Indian Classical Music. Perfect for absolute beginners.</p>
-        </a>
-      </div>
-    </div>
-
-    <br>
-    <br>
-
-    <h1>Experts</h1>
-    <div class="live-courses">
-      <div class="course-card live">
-        <a href="link-to-live-course-4" target="_blank">
-          <span class="banner">Apply Now</span>
-          <img src="https://via.placeholder.com/300x180?text=Live+Expert" alt="Live Expert">
-          <h3>Live Course 4</h3>
-          <p>Master-level sessions with real-time performance reviews and feedback.</p>
-        </a>
-      </div>
-      <div class="course-card live">
-        <a href="link-to-live-course-4" target="_blank">
-          <span class="banner">Apply Now</span>
-          <img src="https://via.placeholder.com/300x180?text=Live+Expert" alt="Live Expert">
-          <h3>Live Course 4</h3>
-          <p>Master-level sessions with real-time performance reviews and feedback.</p>
-        </a>
-      </div>
-      <div class="course-card live">
-        <a href="link-to-live-course-4" target="_blank">
-          <span class="banner">Apply Now</span>
-          <img src="https://via.placeholder.com/300x180?text=Live+Expert" alt="Live Expert">
-          <h3>Live Course 4</h3>
-          <p>Master-level sessions with real-time performance reviews and feedback.</p>
-        </a>
-      </div>
-      <div class="course-card live">
-        <a href="link-to-live-course-4" target="_blank">
-          <span class="banner">Apply Now</span>
-          <img src="https://via.placeholder.com/300x180?text=Live+Expert" alt="Live Expert">
-          <h3>Live Course 4</h3>
-          <p>Master-level sessions with real-time performance reviews and feedback.</p>
-        </a>
-      </div>
+      <div class="course-card live"><a href="#"><span class="banner">Apply Now</span><h3>1. Saptha swaras</h3></a></div>
+      <div class="course-card live"><a href="#"><span class="banner">Apply Now</span><h3>2. Kaalams</h3></a></div>
+      <div class="course-card live"><a href="#"><span class="banner">Apply Now</span><h3>3. Sarali varisai</h3></a></div>
+      <div class="course-card live"><a href="#"><span class="banner">Apply Now</span><h3>4. Madhyasthayi varisai</h3></a></div>
+      <div class="course-card live"><a href="#"><span class="banner">Apply Now</span><h3>5. Tharasthayi varisai</h3></a></div>
+      <div class="course-card live"><a href="#"><span class="banner">Apply Now</span><h3>6. Mandrasthayi varisai</h3></a></div>
+      <div class="course-card live"><a href="#"><span class="banner">Apply Now</span><h3>7. Jhanda varisai</h3></a></div>
+      <div class="course-card live"><a href="#"><span class="banner">Apply Now</span><h3>8. Vakra Jhanda varisai</h3></a></div>
+      <div class="course-card live"><a href="#"><span class="banner">Apply Now</span><h3>9. Dhattu varisai</h3></a></div>
+      <div class="course-card live"><a href="#"><span class="banner">Apply Now</span><h3>10. Alamkarams</h3></a></div>
+      <div class="course-card live"><a href="#"><span class="banner">Apply Now</span><h3>11. Short Namavalis</h3></a></div>
     </div>
   </div>
+
+  <br><br>
+
+  <div class="live-category">
+    <h1>Intermediate</h1>
+    <div class="live-courses">
+      <div class="course-card live"><a href="#"><span class="banner">Apply Now</span><h3>1. Introduction to Ragas</h3></a></div>
+      <div class="course-card live"><a href="#"><span class="banner">Apply Now</span><h3>2. Geetams</h3></a></div>
+      <div class="course-card live"><a href="#"><span class="banner">Apply Now</span><h3>3. Swarajathi</h3></a></div>
+      <div class="course-card live"><a href="#"><span class="banner">Apply Now</span><h3>4. Jathiswaram</h3></a></div>
+      <div class="course-card live"><a href="#"><span class="banner">Apply Now</span><h3>5. Adi tala Varnams</h3></a></div>
+      <div class="course-card live"><a href="#"><span class="banner">Apply Now</span><h3>6. Simple Keerthanams</h3></a></div>
+      <div class="course-card live"><a href="#"><span class="banner">Apply Now</span><h3>7. Long Bhajans</h3></a></div>
+    </div>
+  </div>
+
+  <br><br>
+
+  <div class="live-category">
+    <h1>Advanced</h1>
+    <div class="live-courses">
+      <div class="course-card live"><a href="#"><span class="banner">Apply Now</span><h3>1. Ada tala Varnams</h3></a></div>
+      <div class="course-card live"><a href="#"><span class="banner">Apply Now</span><h3>2. Tough keerthanams</h3></a></div>
+      <div class="course-card live"><a href="#"><span class="banner">Apply Now</span><h3>3. Advanced Ragas</h3></a></div>
+      <div class="course-card live"><a href="#"><span class="banner">Apply Now</span><h3>4. Thillanas</h3></a></div>
+    </div>
+  </div>
+
+  <br><br>
+
+  <div class="live-category">
+    <h1>Expert</h1>
+    <div class="live-courses">
+      <div class="course-card live"><a href="#"><span class="banner">Apply Now</span><h3>1. Ragam, tanam, Pallavi</h3></a></div>
+      <div class="course-card live"><a href="#"><span class="banner">Apply Now</span><h3>2. Tough keerthanams and ragams</h3></a></div>
+      <div class="course-card live"><a href="#"><span class="banner">Apply Now</span><h3>3. Ragamalikas</h3></a></div>
+      <div class="course-card live"><a href="#"><span class="banner">Apply Now</span><h3>4. Alapanam</h3></a></div>
+      <div class="course-card live"><a href="#"><span class="banner">Apply Now</span><h3>5. Bhavam, dhyanam</h3></a></div>
+      <div class="course-card live"><a href="#"><span class="banner">Apply Now</span><h3>6. How to compose and create</h3></a></div>
+    </div>
+  </div>
+
+  <br><br>
+
+  <div class="live-category">
+    <h1>Special Topics</h1>
+    <div class="live-courses">
+      <div class="course-card live"><a href="#"><span class="banner">Apply Now</span><h3>1. Ashtapthy</h3></a></div>
+      <div class="course-card live"><a href="#"><span class="banner">Apply Now</span><h3>2. Tharangams</h3></a></div>
+      <div class="course-card live"><a href="#"><span class="banner">Apply Now</span><h3>3. Abhangs</h3></a></div>
+      <div class="course-card live"><a href="#"><span class="banner">Apply Now</span><h3>4. Thiruppavai</h3></a></div>
+      <div class="course-card live"><a href="#"><span class="banner">Apply Now</span><h3>5. Pancharatnam (Thyagaraja)</h3></a></div>
+      <div class="course-card live"><a href="#"><span class="banner">Apply Now</span><h3>6. Saptharatnam (Oothukkadu)</h3></a></div>
+      <div class="course-card live"><a href="#"><span class="banner">Apply Now</span><h3>7. Kritis of Mahans (Thyagaraja, Swathi Thirunal, Mutthuswami Deekshitar, Shyama Shastri, Oothukkadu, Bhadrachala Ramadas, etc.)</h3></a></div>
+      <div class="course-card live"><a href="#"><span class="banner">Apply Now</span><h3>8. Bhajana Sampradayam Kritis</h3></a></div>
+      <div class="course-card live"><a href="#"><span class="banner">Apply Now</span><h3>9. Hindusthani Bhajans</h3></a></div>
+    </div>
+  </div>
+
 </div>
+
 
 
   <script>

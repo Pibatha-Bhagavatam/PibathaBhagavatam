@@ -1291,6 +1291,9 @@ body {
         max-width: 100%;
         margin-top: 0;
     }
+    .about-content h1{
+        margin-top: 10px;
+    }
 
     .about-image img {
         margin: 20px auto;
@@ -1443,14 +1446,8 @@ body {
         font-size: 12px;
     }
 
-    .gallery {
-        display: flex;
-        flex-direction: row; /* Align items horizontally */
-        overflow-x: auto; /* Enable horizontal scrolling */
-        scroll-snap-type: x mandatory; /* Ensure the scroll stops at each image */
-        gap: 20px; /* Adjust gap between images */
-        width: 100%;
-        margin-top: 70px;
+    .Coursegallery {
+        gap: 0px; /* Adjust gap between images */
       }
     
       .container {
@@ -1489,7 +1486,9 @@ body {
         font-size: 15px;
         margin-top: 20px;
       }
-    
+      .Coursegallery {
+        gap: 0px; /* Adjust gap between images */
+      }
 }
 @media (max-width: 768px) {
     

@@ -212,34 +212,7 @@
         a:hover {
             text-decoration: underline;
         }
-        .faq-container {
-            margin-left:250px;
-            width: 90%;
-            max-width: 800px;
-            backdrop-filter: blur(10px);
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 30px;
-            padding: 20px;
-            margin-top: 20px;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-        }
-        .faq-item {
-            background: transparent;
-            margin-bottom: 10px;
-            padding: 15px;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            color: white;
-            font-weight: bold;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.5);
-        }
-        .faq-answer {
-            display: none;
-            padding: 10px;
-            color: white;
-        }
+
         .form-container {
             width: 90%;
             max-width: 600px;
@@ -328,15 +301,6 @@
         font-size: 14px;
     }
 
-    .faq-container {
-        margin-left: 0;
-        width: 100%;
-    }
-
-    .form-container {
-        margin-left: 0;
-        width: 100%;
-    }
 
     .book-content h1 {
         font-size: 24px;
@@ -398,10 +362,7 @@
       .table-container th{
         border-radius: 5px;
       }
-      .faq-container{
-        width: 350px;
-        margin-left: 15px;
-      }
+
       .form-container{
         width: 350px;
         margin-left: 14px;
@@ -536,46 +497,6 @@
         </div>
     </section>
 
-    <h2 style="color: white; text-align: center; margin-top: 170px; font-size: 30px;">Frequently Asked Questions</h2>
-
-    <section class="faq-container">
-        <div class="faq-item" onclick="toggleAnswer(this)">
-            <span>What is the minimum age requirement for joining the classes?</span>
-            <span>▼</span>
-        </div>
-        <div class="faq-answer">There is no strict age limit, but a basic ability to follow instructions is required.</div><hr>
-        
-        <div class="faq-item" onclick="toggleAnswer(this)">
-            <span>Do I need any prior music experience?</span>
-            <span>▼</span>
-        </div>
-        <div class="faq-answer">No, beginners are welcome. We start from the basics.</div><hr>
-        
-        <div class="faq-item" onclick="toggleAnswer(this)">
-            <span>Which language is used for instruction?</span>
-            <span>▼</span>
-        </div>
-        <div class="faq-answer">Classes are conducted in English and Tamil/Malayalam as needed.</div><hr>
-        
-        <div class="faq-item" onclick="toggleAnswer(this)">
-            <span>Do I need any instruments to start?</span>
-            <span>▼</span>
-        </div>
-        <div class="faq-answer">While instruments can be helpful, vocal classes do not require them.</div><hr>
-        
-        <div class="faq-item" onclick="toggleAnswer(this)">
-            <span>Are classes conducted online?</span>
-            <span>▼</span>
-        </div>
-        <div class="faq-answer">Yes, all classes are conducted via Google Meet.</div><hr>
-        
-    </section>
-    <script>
-        function toggleAnswer(element) {
-            let answer = element.nextElementSibling;
-            answer.style.display = (answer.style.display === 'block') ? 'none' : 'block';
-        }
-    </script>
 
     <h2 style="color: white; font-size: 40px; text-align: center; margin-top: 100px; margin-bottom: 20px;">Ask Questions</h2>
 <section class="form-container">

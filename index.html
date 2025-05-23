@@ -95,10 +95,45 @@
                 <a href="./Courses/Courses.html" class="view-courses-btn">View All Courses</a>
             </div>
             <div class="Coursecontainer">
-                <div class="Coursegallery" id="CourseGallery"></div>
+                <div class="Coursegallery" id="CourseGallery">
+                    <div class="gmg-box" style="background-image: url('./coursesimg/4.png');">
+                        <h3>Thiruppavai</h3>
+                    </div>
+                    <div class="gmg-box" style="background-image: url('./coursesimg/3.png');">
+                        <h3>Ashtapathi</h3>
+                    </div>
+                    <div class="gmg-box" style="background-image: url('./coursesimg/1.png');">
+                        <h3>Carnatic Music</h3>
+                    </div>
+                    <div class="gmg-box" style="background-image: url('./coursesimg/2.png');">
+                        <h3>Tharangam</h3>
+                    </div>
+                </div>
             </div>
-            
         </section>
+        
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const gmgBoxes = document.querySelectorAll(".gmg-box");
+        
+                let currentIndex = 0;
+        
+                function animateGallery() {
+                    // Remove 'active' class from all images
+                    gmgBoxes.forEach(box => box.classList.remove("active"));
+        
+                    // Expand the current image
+                    gmgBoxes[currentIndex].classList.add("active");
+        
+                    // Move to the next image, looping back to the start
+                    currentIndex = (currentIndex + 1) % gmgBoxes.length;
+                }
+        
+                // Start animation loop
+                setInterval(animateGallery, 2000); // Change every 2 seconds
+            });
+        </script>
         
         <section id="journey" class="journey-section">
             <h1 class="heading">Ready to Begin Your Musical Journey?</h1>
@@ -469,52 +504,7 @@
                             });
     </script>
 
-        <script>
-                                        document.addEventListener("DOMContentLoaded", function () {
-                        const courseGallery = document.getElementById("CourseGallery");
-
-                        // Array of image details
-                        const galleryItems = [
-                            { title: "Thiruppavai", image: "./Assets/Gallery/goddess-andal.webp" },
-                            { title: "Ashtapathi", image: "./Assets/Gallery/goddess-andal.webp" },
-                            { title: "Carnatic Music", image: "./Assets/Gallery/carnatic.jpg" },
-                            { title: "Tharangam", image: "./Assets/Gallery/Tharangam.jpg" },
-                        ];
-
-                        // Generate gallery items dynamically
-                        galleryItems.forEach(item => {
-                            const div = document.createElement("div");
-                            div.classList.add("gmg-box");
-                            div.style.backgroundImage = `url(${item.image})`;
-
-                            const title = document.createElement("h3");
-                            title.textContent = item.title;
-
-                            div.appendChild(title);
-                            courseGallery.appendChild(div);
-                        });
-
-                        // Automatic animation logic
-                        let currentIndex = 0;
-                        const gmgBoxes = document.querySelectorAll(".gmg-box");
-
-                        function animateGallery() {
-                            // Remove 'active' class from all images
-                            gmgBoxes.forEach(box => box.classList.remove("active"));
-
-                            // Expand the current image
-                            gmgBoxes[currentIndex].classList.add("active");
-
-                            // Move to the next image, looping back to the start
-                            currentIndex = (currentIndex + 1) % gmgBoxes.length;
-                        }
-
-                        // Start animation loop
-                        setInterval(animateGallery, 2000); // Change every 2 seconds
-                    });
-
-
-        </script>
+        
 
     </body>
     </html>

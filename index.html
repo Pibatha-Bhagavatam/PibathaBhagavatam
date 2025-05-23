@@ -95,10 +95,45 @@
                 <a href="./Courses/Courses.html" class="view-courses-btn">View All Courses</a>
             </div>
             <div class="Coursecontainer">
-                <div class="Coursegallery" id="CourseGallery"></div>
+                <div class="Coursegallery" id="CourseGallery">
+                    <div class="gmg-box" style="background-image: url('./coursesimg/4.png');">
+                        <h3>Thiruppavai</h3>
+                    </div>
+                    <div class="gmg-box" style="background-image: url('./coursesimg/3.png');">
+                        <h3>Ashtapathi</h3>
+                    </div>
+                    <div class="gmg-box" style="background-image: url('./coursesimg/1.png');">
+                        <h3>Carnatic Music</h3>
+                    </div>
+                    <div class="gmg-box" style="background-image: url('./coursesimg/2.png');">
+                        <h3>Tharangam</h3>
+                    </div>
+                </div>
             </div>
-            
         </section>
+        
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const gmgBoxes = document.querySelectorAll(".gmg-box");
+        
+                let currentIndex = 0;
+        
+                function animateGallery() {
+                    // Remove 'active' class from all images
+                    gmgBoxes.forEach(box => box.classList.remove("active"));
+        
+                    // Expand the current image
+                    gmgBoxes[currentIndex].classList.add("active");
+        
+                    // Move to the next image, looping back to the start
+                    currentIndex = (currentIndex + 1) % gmgBoxes.length;
+                }
+        
+                // Start animation loop
+                setInterval(animateGallery, 2000); // Change every 2 seconds
+            });
+        </script>
         
         <section id="journey" class="journey-section">
             <h1 class="heading">Ready to Begin Your Musical Journey?</h1>
@@ -186,27 +221,6 @@
             </div>
         </section>
            
-        <section id="events" class="sixth-section">
-            <div class="eventss">
-              <h1>Upcoming Events/News Section</h1>
-              <p>Announcements like new course launches, free orientation sessions, or Vijayadashami specials</p>
-          
-              <div class="gallery" id="gallery">
-                <a href="#" class="container active">
-                  <img src="./Assets/Images/1.gif" alt="Product 1">
-                  <h1>Event 1</h1>
-                </a>
-                <a href="#" class="container">
-                  <img src="./Assets/Images/bgssss/10.jpg" alt="Product 2">
-                  <h1>Event 2</h1>
-                </a>
-                <a href="#" class="container">
-                  <img src="./Assets/Images/bgssss/7.jpg" alt="Product 3">
-                  <h1>Event 3</h1>
-                </a>
-              </div>
-            </div>
-          </section>
           
           
           <script>
@@ -237,7 +251,7 @@
           </script>
           
           
-          
+                
 
 
     
@@ -283,108 +297,123 @@
 
 
 
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-    const chatbotMessages = document.getElementById("chatbot-messages");
-    const chatbotInput = document.getElementById("chatbot-input");
-    const sendMessageButton = document.getElementById("send-message");
 
-    function addMessage(role, text) {
-        const messageDiv = document.createElement("div");
-        messageDiv.classList.add("chat-message", role);
-
-        const avatarDiv = document.createElement("div");
-        avatarDiv.classList.add("chat-avatar", role === "bot" ? "bot-avatar" : "user-avatar");
-        avatarDiv.innerText = role === "bot" ? "AI" : "YOU";
-
-        const textWrapper = document.createElement("div");
-        textWrapper.classList.add("chat-text-wrapper");
-
-        const textDiv = document.createElement("div");
-        textDiv.classList.add("chat-text");
-        textDiv.innerText = text;
-
-        textWrapper.appendChild(textDiv);
-        messageDiv.appendChild(avatarDiv);
-        messageDiv.appendChild(textWrapper);
-        chatbotMessages.appendChild(messageDiv);
-
-        chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
-    }
-
-    const websiteKnowledgeBase = {
-        "about": "Pibatha Bhagavatam is dedicated to spreading the knowledge of Carnatic music...",
-        "courses": "We offer courses on Carnatic music, bhajans, and devotional songs. You can enroll here: [link]",
-        "contact": "You can contact us via email at contact@pibathabhagavatam.com or WhatsApp +91 XXXXX XXXXX",
-        "contribute": "You can contribute to support our cause via PayPal or Razorpay. Visit our donation page here: [link]",
-        "shop": "Check out our shop for books, music courses, and exclusive merchandise! Visit [shop link]",
-        "events": "Stay updated with our latest events and online music sessions. More details here: [events link]"
-    };
-
-    async function sendMessage() {
-        const userMessage = chatbotInput.value.trim().toLowerCase();
-        if (!userMessage) return;
-
-        addMessage("user", userMessage);
-        chatbotInput.value = "";
-
-        for (const key in websiteKnowledgeBase) {
-            if (userMessage.includes(key)) {
-                addMessage("bot", websiteKnowledgeBase[key]);
-                return;
-            }
-        }
-
-        try {
-            const response = await fetch("http://localhost:5000/api/chatbot", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ message: userMessage })
-            });
-
-            const data = await response.json();
-
-            if (data.choices && data.choices.length > 0) {
-                addMessage("bot", data.choices[0].message.content);
-            } else {
-                addMessage("bot", "Sorry, I couldn't process that.");
-            }
-        } catch (error) {
-            addMessage("bot", "Error: Unable to connect to AI.");
-            console.error("API Error:", error);
-        }
-    }
-
-    sendMessageButton.addEventListener("click", sendMessage);
-    chatbotInput.addEventListener("keypress", function(event) {
-        if (event.key === "Enter") sendMessage();
-    });
-});
-
-</script>
 
 <script>
     document.addEventListener("DOMContentLoaded", function() {
-    const chatbotContainer = document.getElementById("chatbot-container");
-    
-    if (!chatbotContainer) {
-        console.error("Chatbot container not found.");
-        return; // Stop the script if chatbot-container is missing
-    }
+        const chatbotMessages = document.getElementById("chatbot-messages");
+        const chatbotInput = document.getElementById("chatbot-input");
+        const sendMessageButton = document.getElementById("send-message");
 
-    const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                chatbotContainer.style.opacity = "1";
-                chatbotContainer.style.transform = "translateY(0)";
+        // Function to add a message to the chat window
+        function addMessage(role, text) {
+            const messageDiv = document.createElement("div");
+            messageDiv.classList.add("chat-message", role);
+
+            const avatarDiv = document.createElement("div");
+            avatarDiv.classList.add("chat-avatar", role === "bot" ? "bot-avatar" : "user-avatar");
+            avatarDiv.innerText = role === "bot" ? "AI" : "YOU";
+
+            const textWrapper = document.createElement("div");
+            textWrapper.classList.add("chat-text-wrapper");
+
+            const textDiv = document.createElement("div");
+            textDiv.classList.add("chat-text");
+            textDiv.innerText = text;
+
+            textWrapper.appendChild(textDiv);
+            messageDiv.appendChild(avatarDiv);
+            messageDiv.appendChild(textWrapper);
+            chatbotMessages.appendChild(messageDiv);
+
+            // Scroll to the bottom of the chat window
+            chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+        }
+
+        // Website Knowledge Base: Predefined responses
+        const websiteKnowledgeBase = {
+            "about": "Pibatha Bhagavatam is dedicated to spreading the knowledge of Carnatic music...",
+            "courses": "We offer courses on Carnatic music, bhajans, and devotional songs. You can enroll here: [link]",
+            "contact": "You can contact us via email at contact@pibathabhagavatam.com or WhatsApp +91 XXXXX XXXXX",
+            "contribute": "You can contribute to support our cause via PayPal or Razorpay. Visit our donation page here: [link]",
+            "shop": "Check out our shop for books, music courses, and exclusive merchandise! Visit [shop link]",
+            "events": "Stay updated with our latest events and online music sessions. More details here: [events link]"
+        };
+
+        // Function to send a message and process response
+        async function sendMessage() {
+            const userMessage = chatbotInput.value.trim().toLowerCase();
+            if (!userMessage) return; // Don't send an empty message
+
+            addMessage("user", userMessage);
+            chatbotInput.value = "";
+
+            // First check if the message matches any of the predefined knowledge base
+            for (const key in websiteKnowledgeBase) {
+                if (userMessage.includes(key)) {
+                    addMessage("bot", websiteKnowledgeBase[key]);
+                    return;
+                }
             }
+
+            try {
+                // Call backend API for a chatbot response
+                const response = await fetch("https://pbkey-backend.onrender.com/api/chatbot", {  // Updated backend URL
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ message: userMessage })
+                });
+
+                if (!response.ok) {
+                    // If response status isn't OK, show error message
+                    throw new Error("Failed to fetch response from server");
+                }
+
+                const data = await response.json();
+
+                // Handle the response from the AI chatbot API
+                if (data.choices && data.choices.length > 0) {
+                    addMessage("bot", data.choices[0].message.content);
+                } else {
+                    addMessage("bot", "Sorry, I couldn't process that.");
+                }
+            } catch (error) {
+                addMessage("bot", "Error: Unable to connect to AI.");
+                console.error("API Error:", error);
+            }
+        }
+
+        // Attach event listeners to the buttons and inputs
+        sendMessageButton.addEventListener("click", sendMessage);
+        chatbotInput.addEventListener("keypress", function(event) {
+            if (event.key === "Enter") sendMessage();
         });
-    }, { threshold: 0.2 });
-
-    observer.observe(chatbotContainer);
-});
-
+    });
 </script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const chatbotContainer = document.getElementById("chatbot-container");
+
+        if (!chatbotContainer) {
+            console.error("Chatbot container not found.");
+            return; // Stop the script if chatbot-container is missing
+        }
+
+        // Set up Intersection Observer to handle chatbot visibility based on scrolling
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    chatbotContainer.style.opacity = "1";
+                    chatbotContainer.style.transform = "translateY(0)";
+                }
+            });
+        }, { threshold: 0.2 });
+
+        observer.observe(chatbotContainer);
+    });
+</script>
+
 
 
         
@@ -475,52 +504,7 @@
                             });
     </script>
 
-        <script>
-                                        document.addEventListener("DOMContentLoaded", function () {
-                        const courseGallery = document.getElementById("CourseGallery");
-
-                        // Array of image details
-                        const galleryItems = [
-                            { title: "Thiruppavai", image: "./Assets/Gallery/goddess-andal.webp" },
-                            { title: "Ashtapathi", image: "./Assets/Gallery/goddess-andal.webp" },
-                            { title: "Carnatic Music", image: "./Assets/Gallery/carnatic.jpg" },
-                            { title: "Tharangam", image: "./Assets/Gallery/Tharangam.jpg" },
-                        ];
-
-                        // Generate gallery items dynamically
-                        galleryItems.forEach(item => {
-                            const div = document.createElement("div");
-                            div.classList.add("gmg-box");
-                            div.style.backgroundImage = `url(${item.image})`;
-
-                            const title = document.createElement("h3");
-                            title.textContent = item.title;
-
-                            div.appendChild(title);
-                            courseGallery.appendChild(div);
-                        });
-
-                        // Automatic animation logic
-                        let currentIndex = 0;
-                        const gmgBoxes = document.querySelectorAll(".gmg-box");
-
-                        function animateGallery() {
-                            // Remove 'active' class from all images
-                            gmgBoxes.forEach(box => box.classList.remove("active"));
-
-                            // Expand the current image
-                            gmgBoxes[currentIndex].classList.add("active");
-
-                            // Move to the next image, looping back to the start
-                            currentIndex = (currentIndex + 1) % gmgBoxes.length;
-                        }
-
-                        // Start animation loop
-                        setInterval(animateGallery, 2000); // Change every 2 seconds
-                    });
-
-
-        </script>
+        
 
     </body>
     </html>
